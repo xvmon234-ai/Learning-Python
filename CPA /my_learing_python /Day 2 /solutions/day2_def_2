@@ -6,19 +6,26 @@
 #     return x / y
 # print(f"평균: {calculate_average}")
 
-# --- 모범 답안 ---
-def calculate_average(numbers): # 'numbers'는 매개변수: 함수가 받을 리스트의 '이름'
+# --- 모범 답안 (수정된 코드) ---
+def calculate_average(numbers):
     """
     숫자 리스트의 평균을 계산하고 반환하는 함수입니다.
     리스트가 비어있을 경우 0을 반환합니다.
     """
-    if not numbers: # 리스트가 비어있는지 확인 (True이면 비어있음)
-        return 0    # 비어있으면 0을 반환하고 함수 종료
+    if not numbers:
+        return 0
 
-    total = sum(numbers) # 전달받은 리스트(numbers)의 합계를 계산
-    average = total / len(numbers) # 전달받은 리스트(numbers)의 길이로 나누어 평균 계산
-    return average # 계산된 평균 값을 반환
+    total = sum(numbers)
+    average = total / len(numbers)
+    return average
 
+my_scores = [10, 20, 30, 40, 50]
+avg1 = calculate_average(my_scores)
+print(f"평균: {avg1}")
+
+empty_list = []
+avg2 = calculate_average(empty_list)
+print(f"빈 리스트의 평균: {avg2}")
 # 함수 호출 예시:
 my_scores = [10, 20, 30, 40, 50] # 함수에 전달할 실제 '인수' 리스트
 avg1 = calculate_average(my_scores) # 함수를 호출하고 반환값을 변수에 저장
