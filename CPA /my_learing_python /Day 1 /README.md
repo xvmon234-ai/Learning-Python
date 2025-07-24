@@ -103,7 +103,7 @@ print(f"정렬된 숫자 리스트: {numbers}")
 ### **추가 학습**
 'sort'와 'sorted'의 비교
 
-[[추가 학습 내용] 보러가기](./futher_study/sort_sorted.py)
+[[추가 학습 내용] 보러가기](./further_study/sort_sorted.py)
 
 
 
