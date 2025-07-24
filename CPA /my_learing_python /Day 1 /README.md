@@ -95,6 +95,8 @@ print(f"정렬된 숫자 리스트: {numbers}")
 
 
 [ [연습 문제 정답] 보러가기](./solutions/day1_lists.py)
+
+
 -----
 
 ### **3. 핵심 자료형 2 - 딕셔너리 (Dictionary)**
