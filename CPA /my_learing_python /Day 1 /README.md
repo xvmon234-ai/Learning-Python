@@ -37,6 +37,7 @@ print(f"불린: {my_boolean}, 타입: {type(my_boolean)}")
 2.  `result`라는 변수에 `num1`과 `num2`의 합을 할당하세요.
 3.  `f"10 + 20 = 30"` 형식으로 결과를 출력하세요.
 
+
 [정답 보러가기](./solutions/day1_variables.py)
 
 -----
