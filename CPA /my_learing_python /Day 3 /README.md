@@ -102,7 +102,10 @@
     3.  변경 후의 DataFrame을 `df_reset_sales`에 저장하고, `df_reset_sales`의 **정보(info)를 출력**하여 `'OrderDate'` 컬럼이 일반 컬럼으로 잘 유지되었는지 확인하세요.
     4.  `df_reset_sales`의 **상위 3개 행을 출력**하세요.
 
+[▶️ **정답 코드 보러가기**](./solutions/day3_lndex_1.py)
 
+
+[📚 **추가 학습 보러가기**](./further_study/reset_index.py)
 
 
 -----
@@ -116,16 +119,14 @@
     3.  `df_grades`의 **정보(info)를 출력**하여 인덱스가 올바르게 설정되었고, 원본 컬럼들이 제거되었는지 확인하세요.
     4.  `df_grades`의 **인덱스 자체를 출력**하세요.
 
-<!-- end list -->
+[▶️ **정답 코드 보러가기**](./solutions/day3_lndex_2.py)
 
-```csv
-StudentID,Subject,Score
-S001,Math,90
-S001,Science,85
-S002,Math,78
-S002,English,92
-S003,Science,88
-```
+
+[📚 **추가 학습 보러가기 (1)**](./further_study/multi_index.py)
+
+
+[📚 **추가 학습 보러가기 (2)**](./further_study/why_info.py)
+
 
 -----
 
@@ -137,50 +138,12 @@ S003,Science,88
     2.  `df_flexible`의 **정보(info)를 출력**하여 각 컬럼의 `Non-Null Count`와 `Dtype`을 확인하세요. 특히 누락된 데이터가 어떻게 처리되는지 주목하세요.
     3.  `df_flexible`의 **모든 행을 출력**하세요.
 
-<!-- end list -->
+[▶️ **정답 코드 보러가기**](./solutions/day3_dataframe.py)
 
-```python
-data_list = [
-    {'Product': 'Laptop', 'Price': 1200, 'Weight_kg': 2.5},
-    {'Product': 'Mouse', 'Price': 25, 'Manufacturer': 'Logitech'}, # Weight_kg 누락, Manufacturer 추가
-    {'Product': 'Keyboard', 'Weight_kg': 1.0, 'Layout': 'US'}, # Price 누락, Layout 추가
-    {'Product': 'Monitor'} # Price, Weight_kg, Manufacturer, Layout 모두 누락
-]
+
+[📚 **추가 학습 보러가기 (1)**](./further_study/row_column.py)
+
+
+[📚 **추가 학습 보러가기 (2)**](./further_study/NaN_dtypes.py)
+
 ```
-
------
-
-### **➕ 추가 학습 (further\_study.py 파일에 저장)**
-
-이 섹션은 더 깊은 이해를 위해 스스로 탐구하고 코드를 작성해 볼 수 있는 주제들입니다.
-
-```python
-# further_study.py
-
-# --- 인덱스와 컬럼 조작의 다양한 조합 탐구 ---
-# 1. set_index()와 reset_index()의 모든 파라미터 조합 (inplace=True/False, drop=True/False)을 직접 코딩하여
-#    DataFrame의 원본 변경 여부와 컬럼 유지/삭제 여부를 명확히 이해하기.
-#    각 조합별로 df.info()와 df.index, df.columns를 출력하여 변화를 관찰할 것.
-
-# 2. pd.read_csv()의 추가적인 중요 파라미터 탐구:
-#    - header: 헤더가 없는 CSV 파일 처리
-#    - names: 컬럼 이름 직접 지정
-#    - usecols: 특정 컬럼만 불러오기
-#    - na_values: 특정 문자열을 NaN으로 인식하게 하기
-
-# --- DataFrame의 인덱스 객체 (Index, MultiIndex) 심층 이해 ---
-# 1. 단일 인덱스와 MultiIndex(다중 인덱스)의 구조 비교.
-# 2. df.index 속성의 다양한 활용: name, dtype, values 속성 접근.
-# 3. 인덱스 기반으로 DataFrame의 특정 행을 선택하는 방법 (예: loc, iloc 사용 예시)
-
-# --- Pandas 데이터 타입(Dtype) 심화 ---
-# 1. object, int64, float64 외에 자주 사용되는 Dtype (예: datetime64, bool, category) 알아보기.
-# 2. DataFrame 생성 시와 불러올 때 Dtype을 명시적으로 지정하는 방법 (dtype 파라미터) 복습.
-# 3. df.astype() 메서드를 사용하여 컬럼의 Dtype을 변경하는 방법 학습.
-```
-
------
-
-이제 이 종합적인 `README.md` 구조를 바탕으로 GitHub에 Day 3 학습 내용을 체계적으로 기록해 나갈 수 있습니다.
-
-**문제 1**부터 코드를 작성해 볼 준비가 되셨을까요?
