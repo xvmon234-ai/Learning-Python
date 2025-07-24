@@ -47,12 +47,6 @@ print(f"불린: {my_boolean}, 타입: {type(my_boolean)}")
 [ [연습 문제 정답] 보러가기](./solutions/day1_variables.py)
 
 
-### **추가 학습**
-'sort'와 'sorted'의 비교
-
-[[추가 학습 내용] 보러가기](./futher_study/sort()_sorted)
-
-
 
 -----
 
@@ -103,6 +97,14 @@ print(f"정렬된 숫자 리스트: {numbers}")
 
 
 [ [연습 문제 정답] 보러가기](./solutions/day1_lists.py)
+
+
+
+### **추가 학습**
+'sort'와 'sorted'의 비교
+
+[[추가 학습 내용] 보러가기](./futher_study/sort()_sorted)
+
 
 
 -----
