@@ -39,6 +39,13 @@ Day 4 학습의 목표는 Pandas DataFrame에서 데이터를 효율적으로 **
       * **목표**: `df['컬럼명']`의 기본 사용법을 익히고 Series 반환을 확인합니다.
       * **가이드**: `pandas` 라이브러리의 `read_csv`와 `StringIO`를 사용하여 DataFrame을 생성한 뒤, 단일 대괄호를 사용하여 `'Product'` 컬럼을 선택하세요.
 
+
+[▶️ **정답 코드 보러가기**](./solutions/day4_col.py)
+
+
+[📚 **추가 학습 보러가기**](./further_study/series_dataframe.py)
+
+
 -----
 
 ### **2. 데이터 선택: 행 선택 (`.loc[]`와 `.iloc[]` 활용)**
@@ -72,6 +79,10 @@ Day 4 학습의 목표는 Pandas DataFrame에서 데이터를 효율적으로 **
       * **목표**: `.iloc[]`를 사용하여 특정 위치의 행을 정확히 선택하는 방법을 연습합니다.
       * **가이드**: 리스트(`[]`) 안에 원하는 행의 정수 인덱스(0부터 시작)를 넣어 `.iloc[]`에 전달하세요.
 
+[▶️ **정답 코드 보러가기**](./solutions/day4_iloc.py)
+
+
+
   * **문제 (중)**:
 
       * **문제 4.3: 여러 컬럼 선택 및 행 라벨 기반 선택 (`.loc[]` 활용)**
@@ -90,6 +101,13 @@ Day 4 학습의 목표는 Pandas DataFrame에서 데이터를 효율적으로 **
       * **가이드**:
         1.  두 개의 대괄호를 사용하여 컬럼 이름을 리스트로 묶어 선택하세요.
         2.  DataFrame 생성 시 `index_col='StudentID'`를 사용하거나 `set_index('StudentID')`를 적용하여 `'StudentID'`를 인덱스로 설정한 후, `.loc[]`에 `'S002'` 라벨을 전달하세요.
+
+
+[▶️ **정답 코드 보러가기**](./solutions/day4_loc.py)
+
+
+[📚 **추가 학습 보러가기**](./further_study/name_error.py)
+
 
 -----
 
@@ -121,6 +139,13 @@ Day 4 학습의 목표는 Pandas DataFrame에서 데이터를 효율적으로 **
           * 위 **4.3 문제**에서 생성한 DataFrame에서 `'Math'` 점수가 80점 이상인 학생들만 필터링하여 출력해보세요.
       * **목표**: 불리언 인덱싱을 사용하여 숫자 조건을 기준으로 DataFrame을 필터링하는 방법을 연습합니다.
       * **가이드**: `df[df['컬럼명'] 조건값]` 형태를 사용하여 `'Math'` 컬럼에 대한 조건을 적용하세요.
+
+
+[▶️ **정답 코드 보러가기**](./solutions/day4_df_filtering.py)
+
+
+[📚 **추가 학습 보러가기**](./further_study/axis_inplace.py)
+
 
 -----
 
@@ -161,6 +186,11 @@ Day 4 학습의 목표는 Pandas DataFrame에서 데이터를 효율적으로 **
         2.  새로운 컬럼은 `df['새컬럼명'] = ...` 형태로 할당하세요.
         3.  `drop()` 메서드를 사용하여 컬럼을 삭제하되, `axis`와 `inplace` 파라미터를 올바르게 설정하세요.
 
+
+[▶️ **정답 코드 보러가기**](./solutions/day4_df_conditions.py)
+
+
+
   * **문제 (상)**:
 
       * **문제 4.6: `str.contains()` 및 `isin()` 활용 필터링**
@@ -173,8 +203,11 @@ Day 4 학습의 목표는 Pandas DataFrame에서 데이터를 효율적으로 **
         1.  `str.contains()` 메서드에 `case=False` 옵션을 사용하여 대소문자를 무시하도록 설정하세요.
         2.  `isin()` 메서드에 부서 이름 리스트를 전달하여 필터링하세요.
 
------
 
-이제 이 `README.md` 형식의 학습 정리 내용을 바탕으로 문제를 풀어나가시면 됩니다. 각 문제에 대한 `solution.py`는 말씀하신 양식(`최초 나의 코딩 / 피드백 / 모범 답안 / 학습 기록`)에 맞춰 제시해 주시면 제가 피드백해 드릴게요.
+[▶️ **정답 코드 보러가기**](./solutions/day4_str_contains_isin.py)
 
-시작해 볼까요? **문제 4.1**부터 풀이를 진행해 주세요\!
+
+
+[📚 **추가 학습 보러가기**](./further_study/boolean_indexing.py)
+
+
