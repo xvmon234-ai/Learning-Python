@@ -1,9 +1,8 @@
-# solution.py
+# --- [최초 나의 코딩] ---
 
 import pandas as pd
 from io import StringIO
 
-# --- [문제 4.5 데이터 재사용 (초기 상태)] ---
 employees_data = """EmployeeID,Name,Department,Salary
 E001,John,HR,60000
 E002,Jane,IT,75000
@@ -12,31 +11,18 @@ E004,Sarah,HR,80000
 E005,David,IT,90000
 """
 
-# DataFrame 생성 (Bonus 컬럼 추가는 문제의 지시에 따라 필터링 전에 먼저 수행)
 df_employees = pd.read_csv(StringIO(employees_data))
 df_employees["Bonus"] = df_employees["Salary"] * 0.1 # 문제 지시에 따라 Bonus 컬럼 추가
 
-# --- [문제 4.6] ---
-# 문제 제시: 위 4.5 문제에서 생성한 DataFrame(단, 'Bonus' 컬럼은 삭제되지 않은 초기 상태로)을 사용하여 다음을 수행하세요.
-# 1. 'Name' 컬럼에서 이름에 'a' 또는 'A'가 포함된 직원들만 str.contains()를 사용하여 필터링하여 출력해보세요.
-# 2. 'Department'가 'HR' 또는 'Finance'인 직원들만 isin() 메서드를 사용하여 필터링하여 출력해보세요.
-#
-# 목표: str.contains()를 사용한 문자열 포함 필터링과 isin()을 사용한 목록 포함 필터링을 연습합니다.
-# 가이드:
-# 1. str.contains() 메서드에 case=False 옵션을 사용하여 대소문자를 무시하도록 설정하세요.
-# 2. isin() 메서드에 부서 이름 리스트를 전달하여 필터링하세요.
 
-# --- [최초 나의 코딩] ---
-# 1. 'Name' 컬럼에서 'a' 또는 'A'가 포함된 직원 필터링 (str.contains() 활용)
-# 이 부분은 불리언 Series를 생성하는 것이므로, 필터링을 위해서는 DataFrame에 적용해야 합니다.
-# df_name_filtered = df_employees["Name"].str.contains("a", case=False) #False가 대소문자 무시인지, 아닌지 헷갈렸음
-# print("\n --- Name Filtered (Boolean Series) --- ")
-# print(df_name_filtered)
+df_name_filtered = df_employees["Name"].str.contains("a", case=False) #False가 대소문자 무시인지, 아닌지 헷갈렸음
+print("\n --- Name Filtered (Boolean Series) --- ")
+print(df_name_filtered)
 
-# 2. 'Department'가 'HR' 또는 'Finance'인 직원 필터링 (isin() 활용)
-# df_dept_filtered = df_employees[df_employees["Department"].isin("HR", "Finance")] #TypeError 발생, 이유를 모르겠음
-# print("\n --- Department Filtered --- ")
-# print(df_dept_filtered)
+
+df_dept_filtered = df_employees[df_employees["Department"].isin("HR", "Finance")] #TypeError 발생, 이유를 모르겠음
+print("\n --- Department Filtered --- ")
+print(df_dept_filtered)
 
 # ---- 올바른 필터링 적용 (문제의 목표에 맞춰 최종 DataFrame을 출력하도록 수정) ----
 # 1. 'Name' 컬럼에서 'a' 또는 'A'가 포함된 직원 필터링 (str.contains() 활용)
@@ -129,6 +115,3 @@ print(filtered_by_dept)
 * **불리언 Series의 활용**: `str.contains()`나 `isin()`의 결과로 생성된 불리언 Series는 그 자체로는 True/False 값들의 집합이지만, 이 Series를 DataFrame의 `[]` 안에 넣으면 `True`에 해당하는 행들만 선택하여 새로운 DataFrame을 반환하는 핵심적인 필터링 메커니즘으로 작동한다. 이는 Pandas 필터링의 기본 중의 기본이므로 확실히 이해해야 한다.
 """
 
-# --- [further_study.py 링크 (선택 사항)] ---
-# # 예시: [Further Study: Advanced String Operations with Pandas](further_study.py)
-# # 추가 학습이 필요한 경우, 별도의 further_study.py 파일을 생성하고 여기에 링크를 남겨두세요.
