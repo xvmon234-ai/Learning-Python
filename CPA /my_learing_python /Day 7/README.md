@@ -74,6 +74,12 @@
     3.  `on` 매개변수에 조인 기준이 되는 열 이름 (`'CustomerID'`)을 지정합니다.
     4.  `how` 매개변수는 `inner`가 기본값이므로 생략하거나 명시적으로 `'inner'`로 설정합니다.
 
+[▶️ **정답 코드 보러가기**](./solutions/day7_inner_joined.py) 
+
+
+[📚 **추가 학습 보러가기**](./further_study/outer_join.py)
+
+
 #### 문제 1-2: 직원 정보와 부서 정보 `left` 조인 (누락 데이터 처리) 🧩
 
   * **난이도**: 🟡 (중)
@@ -109,6 +115,12 @@
     1.  `pd.merge()` 함수를 사용합니다.
     2.  `left_on`과 `right_on` 매개변수를 사용하여 서로 다른 이름의 조인 키 (`'DepartmentID'`와 `'DeptID'`)를 지정합니다.
     3.  `how` 매개변수를 `'left'`로 설정하여 `employees_df`의 모든 레코드를 유지하도록 합니다.
+
+
+[▶️ **정답 코드 보러가기**](./solutions/day7_left_joined.py) 
+
+
+
 
 #### 문제 1-3: 다중 키 및 상이한 키 이름 병합 🔑🔑
 
@@ -147,6 +159,11 @@
     1.  `pd.merge()` 함수를 사용합니다.
     2.  `left_on`과 `right_on` 매개변수에 각각 리스트 형태로 조인할 열들을 지정합니다. (예: `left_on=['ItemCode', 'SaleDate']`)
     3.  필요한 경우 `how` 매개변수를 지정합니다.
+
+
+[▶️ **정답 코드 보러가기**](./solutions/day7_multi_keys.py) 
+
+
 
 -----
 
@@ -216,6 +233,11 @@
     3.  수직 연결이므로 `axis` 매개변수를 기본값(`0`)으로 두거나 명시적으로 `0`으로 설정합니다.
     4.  인덱스 초기화를 위해 `ignore_index=True` 매개변수를 사용합니다.
 
+
+[▶️ **정답 코드 보러가기**](./solutions/day7_conacat_1.py) 
+
+
+
 #### 문제 2-2: 고객 연락처 및 주소 정보 수평 결합 🏠
 
   * **난이도**: 🔴 (상)
@@ -252,6 +274,10 @@
     2.  `pd.concat()` 함수를 사용합니다.
     3.  수평 연결이므로 `axis=1`을 지정합니다.
     4.  인덱스가 일치하지 않는 경우 어떤 결과가 나오는지 확인합니다. (이 문제에서는 `ignore_index=True`를 사용하지 않음)
+
+
+[▶️ **정답 코드 보러가기**](./solutions/day7_conacat_2.py) 
+
 
 -----
 
@@ -305,6 +331,11 @@
     print(sales_data_df)
     ```
 
+
+[▶️ **정답 코드 보러가기**](./solutions/day7_pivot_tables_1.py) 
+
+
+
   * **문제 풀이 가이드**:
 
     1.  `sales_data_df`에 `.pivot_table()` 메서드를 호출합니다.
@@ -347,5 +378,12 @@
     4.  `values` 매개변수에 집계할 값들(`'Quantity'`, `'Sales'`)을 리스트 형태로 전달합니다.
     5.  `aggfunc` 매개변수에 각 `values`에 적용할 집계 함수(`'sum'`)를 지정합니다. `values`가 여러 개일 경우 `aggfunc`도 각 `values`에 해당하는 함수를 지정하거나, 모든 `values`에 공통으로 적용될 함수를 지정할 수 있습니다.
     6.  결과 DataFrame의 `NaN` 값을 `0`으로 채우기 위해 `fill_value=0` 매개변수를 사용합니다.
+   
+
+[▶️ **정답 코드 보러가기**](./solutions/day7_pivot_tables_2.py)
+
+
+[📚 **추가 학습 보러가기**](./further_study/what_else.py)
+
 
 -----
