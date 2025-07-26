@@ -234,7 +234,7 @@
     4.  인덱스 초기화를 위해 `ignore_index=True` 매개변수를 사용합니다.
 
 
-[▶️ **정답 코드 보러가기**](./solutions/day7_conacat_1.py) 
+[▶️ **정답 코드 보러가기**](./solutions/day7_concat_1.py) 
 
 
 
@@ -276,7 +276,7 @@
     4.  인덱스가 일치하지 않는 경우 어떤 결과가 나오는지 확인합니다. (이 문제에서는 `ignore_index=True`를 사용하지 않음)
 
 
-[▶️ **정답 코드 보러가기**](./solutions/day7_conacat_2.py) 
+[▶️ **정답 코드 보러가기**](./solutions/day7_concat_2.py) 
 
 
 -----
