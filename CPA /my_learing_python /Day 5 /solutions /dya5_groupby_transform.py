@@ -1,21 +1,3 @@
-# solutions.py
-
-# --- [문제 5. 특정 그룹 내 결측치 조건부 대체] ---
-# 관련 주제: 5.3 / 결측치(Missing Values) 처리: 대체 (Groupby 응용)
-# 요구사항:
-# 다음 `sales_data` 데이터프레임을 생성하세요.
-# import pandas as pd
-# import numpy as np
-# data = {'Region': ['East', 'West', 'East', 'West', 'East', 'East'],
-#         'Product': ['A', 'B', 'A', 'C', 'B', 'A'],
-#         'Sales': [100, 150, np.nan, 200, 120, np.nan]}
-# sales_data = pd.DataFrame(data)
-# 'Region' 컬럼을 기준으로 그룹화하여, 각 지역별 `Sales` 컬럼의 결측치를 **해당 지역의 평균 `Sales` 값**으로 대체하고 결과를 출력하세요.
-# 학습 목표: `df.groupby()`와 `df.fillna()`를 조합하여 그룹별 통계량을 기반으로 결측치를 대체하는 고급 기법을 학습합니다. 이는 실제 데이터에서 매우 유용한 접근 방식입니다.
-# 가이드:
-# - `sales_data.groupby('Region')['Sales'].transform(lambda x: x.fillna(x.mean()))`과 같은 **`transform` 메서드**를 활용하는 것이 효과적입니다. `groupby()` 후 `mean()`을 구하고 이를 `fillna()`에 전달하는 방법을 고려해 보세요.
-# - 원본 데이터프레임을 직접 수정하려면 재할당 또는 `inplace=True`를 사용하세요.
-
 # --- [최초 나의 코딩] ---
 import pandas as pd
 import numpy as np
