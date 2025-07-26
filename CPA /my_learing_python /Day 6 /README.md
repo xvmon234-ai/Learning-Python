@@ -53,6 +53,10 @@ data = {'Department': ['HR', 'IT', 'HR', 'IT', 'Marketing', 'HR'],
 employees_df = pd.DataFrame(data)
 ```
 
+[▶️ **정답 코드 보러가기**](./solutions/day6_groupby_1.py) 
+
+
+
 **문제에 대한 가이드:**
 
 1.  `employees_df`를 `'Department'` 컬럼으로 그룹화하세요.
@@ -72,6 +76,13 @@ data = {'Category': ['Electronics', 'Clothes', 'Electronics', 'Books', 'Clothes'
         'Price': [500, 30, 1200, 20, 40]}
 sales_df = pd.DataFrame(data)
 ```
+
+[▶️ **정답 코드 보러가기**](./solutions/day6_groupby_2.py) 
+
+
+[📚 **추가 학습 보러가기**](./further_study/method_chaining.py)
+
+
 
 **문제에 대한 가이드:**
 
@@ -96,6 +107,9 @@ weather_df = pd.DataFrame(data)
 
 1.  `weather_df`를 `'City'` 컬럼으로 그룹화하세요.
 2.  그룹화된 객체에서 `'Temperature'` 컬럼을 선택하고 `.max()` 메서드를 적용하세요.
+
+[▶️ **정답 코드 보러가기**](./solutions/day6_groupby_3.py) 
+
 
 -----
 
@@ -129,6 +143,9 @@ data = {'Department': ['HR', 'IT', 'HR', 'IT', 'Marketing', 'HR', 'IT'],
 employees_df_v2 = pd.DataFrame(data)
 ```
 
+[▶️ **정답 코드 보러가기**](./solutions/day6_multi_groupby_1.py) 
+
+
 **문제에 대한 가이드:**
 
 1.  `employees_df_v2`를 `['Department', 'Position']` 리스트를 사용하여 그룹화하세요.
@@ -147,6 +164,12 @@ data = {'Category': ['Electronics', 'Clothes', 'Electronics', 'Books', 'Clothes'
         'Price': [500, 30, 1200, 20, 40]}
 sales_df = pd.DataFrame(data)
 ```
+
+[▶️ **정답 코드 보러가기**](./solutions/day6_multi_groupby_2.py) 
+
+
+[📚 **추가 학습 보러가기**](./further_study/agg.py)
+
 
 **문제에 대한 가이드:**
 
@@ -171,6 +194,13 @@ customer_orders_df = pd.DataFrame(data)
 1.  `customer_orders_df`를 `'CustomerID'` 컬럼으로 그룹화하세요.
 2.  `agg()` 메서드를 사용하여 `'Amount'` 컬럼의 `sum()`과 `'OrderID'` 컬럼의 `count()`를 계산하세요. (또는 `count()`가 의미 있는 다른 컬럼을 사용해도 됩니다.)
 3.  결과 컬럼 이름을 직관적으로 지정하세요.
+
+
+[▶️ **정답 코드 보러가기**](./solutions/day6_multi_groupby_3.py) 
+
+
+[📚 **추가 학습 보러가기**](./further_study/count_size.py)
+
 
 -----
 
@@ -209,6 +239,10 @@ employees_df_v2 = pd.DataFrame(data)
 1.  `employees_df_v2`를 `'Department'` 컬럼으로 그룹화하세요.
 2.  `filter()` 메서드에 `lambda` 함수를 전달하여 각 그룹 (`x`)의 `'Salary'` 컬럼 평균이 70000 이상인지 확인하는 조건을 적용하세요.
 
+
+[▶️ **정답 코드 보러가기**](./solutions/day6_group_filtering_1.py) 
+
+
 ##### 문제 6.3.2: `employees_df_v2` 데이터프레임에 각 부서 내에서 직원의 급여가 해당 부서의 평균 급여보다 얼마나 높은지/낮은지를 나타내는 'Salary\_Deviation'라는 새 컬럼을 추가하세요.
 
 **문제의 학습 목표:**
@@ -222,6 +256,12 @@ data = {'Department': ['HR', 'IT', 'HR', 'IT', 'Marketing', 'HR', 'IT'],
         'Salary': [90000, 75000, 62000, 80000, 100000, 65000, 95000]}
 employees_df_v2 = pd.DataFrame(data)
 ```
+
+[▶️ **정답 코드 보러가기**](./solutions/day6_group_transform.py) 
+
+
+[📚 **추가 학습 보러가기**](./further_study/filter_transform.py)
+
 
 **문제에 대한 가이드:**
 
@@ -248,4 +288,10 @@ sales_df = pd.DataFrame(data)
 1.  `sales_df`를 `'Category'` 컬럼으로 그룹화하세요.
 2.  `apply()` 메서드에 `lambda` 함수를 전달하여 각 그룹 (`x`)에 대해 `'Price'` 컬럼을 기준으로 `nlargest(2)`를 호출하거나, `'Price'`를 기준으로 내림차순 정렬(`sort_values(by='Price', ascending=False)`)한 후 `.head(2)`를 선택하세요.
 
------
+
+[▶️ **정답 코드 보러가기**](./solutions/day6_group_apply.py) 
+
+
+[📚 **추가 학습 보러가기**](./further_study/cpa_apply.py)
+
+
