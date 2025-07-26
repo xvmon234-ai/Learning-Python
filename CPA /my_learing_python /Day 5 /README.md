@@ -55,7 +55,7 @@
   * **학습 목표**: `df.isnull().sum()`을 활용하여 데이터프레임의 결측치 현황을 효율적으로 파악하는 기본기를 다집니다.
   * **가이드**: `df.isnull()` 메서드를 사용한 후, 그 결과를 `sum()` 메서드와 연결하여 각 컬럼의 결측치 개수를 집계하세요.
 
-[▶️ **정답 코드 보러가기**](./solutions_/day5_isnull_sum.py)
+[▶️ **정답 코드 보러가기**](./solutions/day5_isnull_sum.py)
 
 
 [📚 **추가 학습 보러가기**](./further_study/method_attribute.py)
