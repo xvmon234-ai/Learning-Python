@@ -82,6 +82,8 @@ Day 4 학습의 목표는 Pandas DataFrame에서 데이터를 효율적으로 **
 [▶️ **정답 코드 보러가기**](./solutions/day4_iloc.py)
 
 
+[📚 **추가 학습 보러가기**](./further_study/iloc.py)
+
 
   * **문제 (중)**:
 
@@ -106,7 +108,7 @@ Day 4 학습의 목표는 Pandas DataFrame에서 데이터를 효율적으로 **
 [▶️ **정답 코드 보러가기**](./solutions/day4_loc.py)
 
 
-[📚 **추가 학습 보러가기**](./further_study/name_error.py)
+[📚 **추가 학습 보러가기**](./further_study/loc_name_error.py)
 
 
 -----
@@ -144,7 +146,7 @@ Day 4 학습의 목표는 Pandas DataFrame에서 데이터를 효율적으로 **
 [▶️ **정답 코드 보러가기**](./solutions/day4_df_filtering.py)
 
 
-[📚 **추가 학습 보러가기**](./further_study/axis_inplace.py)
+[📚 **추가 학습 보러가기**](./further_study/boolean_indexing.py)
 
 
 -----
@@ -190,6 +192,8 @@ Day 4 학습의 목표는 Pandas DataFrame에서 데이터를 효율적으로 **
 [▶️ **정답 코드 보러가기**](./solutions/day4_df_conditions.py)
 
 
+[📚 **추가 학습 보러가기**](./further_study/multi_conditioning.py)
+
 
   * **문제 (상)**:
 
@@ -208,6 +212,6 @@ Day 4 학습의 목표는 Pandas DataFrame에서 데이터를 효율적으로 **
 
 
 
-[📚 **추가 학습 보러가기**](./further_study/boolean_indexing.py)
+[📚 **추가 학습 보러가기**](./further_study/data_filtering.py)
 
 
