@@ -117,7 +117,3 @@ Pandas에서 **특정 컬럼을 선택하는 것은 공인회계사(CPA)의 업�
 
 결론적으로, Pandas에서 **단일 컬럼을 선택하는 것은 CPA가 데이터를 파악하고, 필요한 정보를 추출하며, 분석 준비를 하는 데 있어 가장 기초적이면서도 핵심적인 기술**입니다.
 """
-
-# --- [further_study.py 링크 (선택 사항)] ---
-# # 예시: [Further Study: Pandas Data Structures](further_study.py)
-# # 추가 학습이 필요한 경우, 별도의 further_study.py 파일을 생성하고 여기에 링크를 남겨두세요.
