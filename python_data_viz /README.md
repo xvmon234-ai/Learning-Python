@@ -109,7 +109,11 @@ plt.tight_layout()
 # plt.show()
 ```
 
+![](images/s_keyword_freq_trend.png)
+
+
 *설명: KB금융지주와 SK이노베이션의 사회(S) 키워드 언급 빈도 추이.*
+
 
   * **SK이노베이션 (제조/에너지)**:
 
@@ -149,6 +153,8 @@ plt.tight_layout()
 # plt.show()
 ```
 
+![](images/g_keyword_freq_trend.png)
+
 *설명: KB금융지주와 SK이노베이션의 지배구조(G) 키워드 언급 빈도 추이.*
 
   * **SK이노베이션 (제조/에너지)**:
@@ -185,6 +191,8 @@ plt.tight_layout()
 # plt.savefig('images/ghg_emissions_trend.png')
 # plt.show()
 ```
+
+![](images/ghg_emissions_trend.png)
 
 *설명: KB금융지주와 SK이노베이션의 온실가스(GHG) 배출량 추이.*
 
