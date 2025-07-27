@@ -182,7 +182,7 @@
       * 원본 데이터프레임을 직접 수정하려면 재할당 또는 `inplace=True`를 사용하세요.
 
 
-[▶️ **정답 코드 보러가기**](./solutions/day5_gruopby_transform.py)
+[▶️ **정답 코드 보러가기**](./solutions/day5_groupby_transform.py)
 
 
 [📚 **추가 학습 보러가기**](./further_study/groupby_transform_apply_lamda.py)
