@@ -8,14 +8,14 @@
 
 
 # --- [최초 나의 코딩] ---
-# my_numbers = [10, 20, 30, 40, 50]
-#
-# def calculate_average(x, y): # <-- [오류 1] 매개변수 선언 방식 오류 및 사용 미흡
-#     x = sum(my_numbers)     # <-- [오류 2] 'my_numbers'는 함수 외부 변수, 매개변수 'x'를 덮어씀
-#     y = len(my_numbers)     # <-- [오류 3] 'my_numbers'는 함수 외부 변수
-#     return x / y            # <-- [오류 4] 빈 리스트 예외 처리 없음
-#
-# print(f"평균: {calculate_average}") # <-- [오류 5] 함수를 호출하지 않고 함수 객체 자체를 출력
+ my_numbers = [10, 20, 30, 40, 50]
+
+ def calculate_average(x, y): # <-- [오류 1] 매개변수 선언 방식 오류 및 사용 미흡
+     x = sum(my_numbers)     # <-- [오류 2] 'my_numbers'는 함수 외부 변수, 매개변수 'x'를 덮어씀
+     y = len(my_numbers)     # <-- [오류 3] 'my_numbers'는 함수 외부 변수
+     return x / y            # <-- [오류 4] 빈 리스트 예외 처리 없음
+
+ print(f"평균: {calculate_average}") # <-- [오류 5] 함수를 호출하지 않고 함수 객체 자체를 출력
 
 # --- [코드 실행 결과] ---
 """
