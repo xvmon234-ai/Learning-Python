@@ -81,9 +81,9 @@
 
 **참고**: 아래 코드 블록은 전체 스크립트 중 각 지표를 시각화하는 부분만 발췌한 것입니다. 전체 코드는 `esg_analysis.py` 파일을 참조하십시오.
 
-[**ESG 분석 코드 보러가기**](https://www.google.com/search?q=./coding/esg_analysis.py)
+[**ESG 분석 코드 보러가기**](https://github.com/xvmon234-ai/Learning-Python/blob/main/python_data_viz%20/coding/esg_analysis.py)
 
-[**GHG 분석 코드 보러가기**](https://www.google.com/search?q=./coding/ghg_analysis.py)
+[**GHG 분석 코드 보러가기**](https://github.com/xvmon234-ai/Learning-Python/blob/main/python_data_viz%20/coding/ghg_analysis.py)
 
 -----
 
