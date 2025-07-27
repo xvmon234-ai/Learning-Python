@@ -1,3 +1,7 @@
+네, Scope 1, 2 배출량만을 고려했을 때의 인사이트와 Scope 3까지 포함했을 때의 인사이트를 각각 제시하여 Scope 3 데이터의 추가가 어떤 심층적인 이해를 제공하는지 강조해 드리겠습니다.
+
+-----
+
 # ESG 공시 트렌드 분석: KB금융지주 & SK이노베이션
 
 ### 🚀 프로젝트 개요
@@ -152,9 +156,7 @@ plt.savefig(os.path.join(output_dir, 'environmental_keyword_trend.png'), dpi=300
 plt.show()
 ```
 
-
-![](images/environmental_keyword_trend.png)
-
+![](images/environment_keyword_trend.png)
 
 *설명: KB금융지주와 SK이노베이션의 환경(E) 키워드 언급 빈도 추이.*
 
@@ -234,9 +236,7 @@ plt.savefig(os.path.join(output_dir, 'social_keyword_trend.png'), dpi=300, bbox_
 plt.show()
 ```
 
-
 ![](images/social_keyword_trend.png)
-
 
 *설명: KB금융지주와 SK이노베이션의 사회(S) 키워드 언급 빈도 추이.*
 
@@ -316,9 +316,7 @@ plt.savefig(os.path.join(output_dir, 'governance_keyword_trend.png'), dpi=300, b
 plt.show()
 ```
 
-
 ![](images/governance_keyword_trend.png)
-
 
 *설명: KB금융지주와 SK이노베이션의 지배구조(G) 키워드 언급 빈도 추이.*
 
@@ -340,6 +338,8 @@ plt.show()
 
 ### 2\. 온실가스 (GHG) 배출량 트렌드
 
+#### 2.1. Scope 1, 2 배출량만을 고려했을 때의 인사이트
+
 ```python
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -350,36 +350,9 @@ import os
 # df = pd.read_csv('esg_data.csv')
 # df['GHG_Emissions'] = df['GHG_Emissions'].str.replace(',', '').astype(float)
 
-# Scope 3 데이터 프레임 생성 (제공된 데이터)
-sk_scope3_data_new = {
-    'Company': ['SK Innovation Co., Ltd.', 'SK Innovation Co., Ltd.', 'SK Innovation Co., Ltd.'],
-    'Year': [2022, 2023, 2024],
-    'Scope': ['Scope 3', 'Scope 3', 'Scope 3'],
-    'GHG_Emissions': [138749300, 142958200, 146490800]
-}
-kb_scope3_data_new = {
-    'Company': ['KB Financial Group Inc.', 'KB Financial Group Inc.', 'KB Financial Group Inc.'],
-    'Year': [2022, 2023, 2024],
-    'Scope': ['Scope 3', 'Scope 3', 'Scope 3'],
-    'GHG_Emissions': [15223, 679389, 694239]
-}
-
-# 기존 df에 Scope 3 데이터 병합 (가정: df에 Scope 1, 2만 있다고 가정)
-# 만약 esg_data.csv에 이미 Scope 3가 있다면 이 부분은 조정 필요
-# 예시: 기존 데이터에서 Scope 1, 2만 필터링 후 Scope 3와 결합
-df_scope1_2 = df[df['Scope'].isin(['Scope 1', 'Scope 2'])] if 'Scope' in df.columns else df.copy()
-
-df_all_scopes = pd.concat([df_scope1_2, pd.DataFrame(sk_scope3_data_new), pd.DataFrame(kb_scope3_data_new)], ignore_index=True)
-
-
-# 총 배출량 계산 (Scope 1 + Scope 2 + Scope 3)
-df_total_ghg = df_all_scopes.groupby(['Company', 'Year'])['GHG_Emissions'].sum().reset_index()
-df_total_ghg.rename(columns={'GHG_Emissions': 'Total_GHG_Emissions'}, inplace=True)
-
-
 # 공통 설정 (전체 코드에서 정의)
-company_order = ['KB Financial Group Inc.', 'SK Innovation Co., Ltd.'] # 공백 제거
-palette = {'KB Financial Group Inc.': '#4C72B0', 'SK Innovation Co., Ltd.': '#C44E52'} # 공백 제거
+company_order = ['KB Financial Group Inc.', 'SK Innovation Co., Ltd.']
+palette = {'KB Financial Group Inc.': '#4C72B0', 'SK Innovation Co., Ltd.': '#C44E52'}
 plt.style.use('seaborn-v0_8-whitegrid')
 plt.rcParams['font.family'] = 'DejaVu Sans'
 plt.rcParams['axes.unicode_minus'] = False
@@ -388,32 +361,39 @@ if not os.path.exists(output_dir):
     os.makedirs(output_dir)
 
 plt.figure(figsize=(10, 6))
-sns.lineplot(data=df_total_ghg, x='Year', y='Total_GHG_Emissions', hue='Company', marker='o',
+sns.lineplot(data=df, x='Year', y='GHG_Emissions', hue='Company', marker='o',
              hue_order=company_order, palette=palette, linewidth=2.5)
-plt.title('Company-wise Total GHG Emissions Trend (Scope 1+2+3) (2022-2024)', fontsize=16, fontweight='bold', pad=20)
+plt.title('Company-wise GHG Emissions Trend (Scope 1+2 only) (2022-2024)', fontsize=16, fontweight='bold', pad=20)
 plt.xlabel('Year', fontsize=12, labelpad=10)
-plt.ylabel('Total GHG Emissions (tCO2eq)', fontsize=12, labelpad=10)
+plt.ylabel('GHG Emissions (tCO2eq)', fontsize=12, labelpad=10)
 plt.grid(True, linestyle='--', alpha=0.6)
-plt.xticks(df_total_ghg['Year'].unique(), fontsize=10)
+plt.xticks(df['Year'].unique(), fontsize=10)
 plt.yticks(fontsize=10)
-plt.ticklabel_format(style='plain', axis='y') # 지수 표기법 대신 일반 숫자 표기
+plt.ticklabel_format(style='plain', axis='y')
 plt.legend(title='Company', title_fontsize='12', fontsize='10',
            loc='upper left', frameon=True, shadow=True, borderpad=1)
 
-# 어노테이션 추가 (총 배출량 기준)
-for company in df_total_ghg['Company'].unique():
-    for year in df_total_ghg['Year'].unique():
-        data_point = df_total_ghg[(df_total_ghg['Company'] == company) & (df_total_ghg['Year'] == year)]['Total_GHG_Emissions'].values
-        if len(data_point) > 0:
-            value = data_point[0]
-            # SKI는 Y축 스케일이 커서 offset 크게, KB는 작게
-            offset_y = 5000000 if company == 'SK Innovation Co., Ltd.' else 30000
-            plt.annotate(f'{value:,.0f}', xy=(year, value), xytext=(year + 0.1, value + offset_y),
-                         arrowprops=dict(facecolor='black', shrink=0.05, width=1, headwidth=5),
-                         fontsize=9, color='black', ha='left')
+# 어노테이션 추가 (예시)
+sk_2024_ghg_data = df[(df['Company'] == 'SK Innovation Co., Ltd.') & (df['Year'] == 2024)]['GHG_Emissions'].values
+if len(sk_2024_ghg_data) > 0:
+    sk_2024_ghg = sk_2024_ghg_data[0]
+    plt.annotate(f'{sk_2024_ghg:,.0f}', xy=(2024, sk_2024_ghg), xytext=(2024.1, sk_2024_ghg + 500000),
+                 arrowprops=dict(facecolor='black', shrink=0.05, width=1, headwidth=5),
+                 fontsize=9, color='black', ha='left')
+else:
+    print("Warning: No data found for SK Innovation Co., Ltd. in 2024 for GHG Emissions. Skipping annotation.")
+
+kb_2024_ghg_data = df[(df['Company'] == 'KB Financial Group Inc.') & (df['Year'] == 2024)]['GHG_Emissions'].values
+if len(kb_2024_ghg_data) > 0:
+    kb_2024_ghg = kb_2024_ghg_data[0]
+    plt.annotate(f'{kb_2024_ghg:,.0f}', xy=(2024, kb_2024_ghg), xytext=(2024.1, kb_2024_ghg + 10000),
+                 arrowprops=dict(facecolor='black', shrink=0.05, width=1, headwidth=5),
+                 fontsize=9, color='black', ha='left')
+else:
+    print("Warning: No data found for KB Financial Group Inc. in 2024 for GHG Emissions. Skipping annotation.")
 
 plt.tight_layout()
-plt.savefig(os.path.join(output_dir, 'total_ghg_emissions_trend_with_scope3.png'), dpi=300, bbox_inches='tight')
+plt.savefig(os.path.join(output_dir, 'ghg_emissions_trend_enhanced.png'), dpi=300, bbox_inches='tight')
 plt.show()
 ```
 
@@ -421,9 +401,37 @@ plt.show()
 ![](images/ghg_emissions_trend_enhanced.png)
 
 
-*설명: KB금융지주와 SK이노베이션의 총 온실가스(GHG) 배출량 추이 (Scope 1, 2, 3 포함).*
+*설명: KB금융지주와 SK이노베이션의 온실가스(GHG) 배출량 추이 (Scope 1, 2만 포함).*
 
-**온실가스(GHG) 배출량 상세 현황 (단위: tCO2eq)**
+**온실가스(GHG) 배출량 상세 현황 (단위: tCO2eq) - Scope 1, 2만 포함**
+
+| 기업명 | 구분 | 2022 | 2023 | 2024 |
+| :------- | :----------- | -----------: | -----------: | -----------: |
+| **KB금융지주** | 직접 온실가스 (Scope 1) | 13,993 | 23,325 | 22,510 |
+| | 간접 온실가스 (Scope 2) | 114,994 | 132,121 | 132,814 |
+| | **총 배출량 (합계)** | **128,987** | **155,446** | **155,324** |
+| **SK이노베이션** | 직접 온실가스 (Scope 1) | 9,116,619 | 9,379,375 | 9,434,690 |
+| | 간접 온실가스 (Scope 2) | 2,026,406 | 2,275,526 | 2,258,457 |
+| | **총 배출량 (합계)** | **11,143,025** | **11,654,901** | **11,693,147** |
+
+  * **KB금융지주 (금융)**:
+
+      * **인사이트**: KB금융지주의 총 온실가스 배출량(Scope 1+2)은 2022년부터 2023년까지 증가했다가 2024년에는 소폭 감소하며 **안정화되는 추세**를 보입니다. 특히, **간접 온실가스(Scope 2)가 전체 배출량의 대부분(약 85% 이상)을 차지**하며 배출량 변동을 주도하고 있습니다. 이는 금융회사의 특성상 직접적인 생산 활동보다는 `사업장 운영에 따른 전력 사용(Scope 2)`이 주된 배출원이기 때문입니다. 2023년 Scope 1 배출량의 상대적 증가는 사업 확장이나 에너지 사용 방식의 변화를 시사할 수 있으나, 2024년에 다시 감소하며 관리 노력이 이루어지고 있음을 보여줍니다.
+
+  * **SK이노베이션 (제조/에너지)**:
+
+      * **인사이트**: SK이노베이션의 온실가스 배출량(Scope 1+2)은 2022년부터 2024년까지 **지속적으로 증가하는 추세**를 보이며, 특히 **직접 온실가스(Scope 1)가 압도적인 비중(약 80% 이상)을 차지**하고 있습니다. 이는 제조 및 에너지 생산 과정에서 발생하는 `공정 배출` 및 `연료 연소`가 주된 원인임을 명확히 보여줍니다. 이러한 증가는 `생산량 증가` 또는 `탈탄소화 기술 적용의 어려움`을 시사하며, 앞서 E-키워드 언급에서 보인 환경 경영 전략에 대한 논의가 활발함에도 불구하고 실제 배출량 감축은 **단순하지 않고 장기적인 과제**임을 드러냅니다.
+
+  * **비교**:
+
+      * 두 기업 간 GHG 배출량 규모의 상당한 차이는 `산업별 특성`에서 기인합니다. SK이노베이션은 **생산 공정에서 발생하는 직접 배출량(Scope 1)이 주된 부담**이며 절대적인 배출량이 훨씬 큰 반면, KB금융지주는 **사업장 운영 관련 간접 배출량(Scope 2)의 비중이 높고 절대적인 규모는 훨씬 작습니다.**
+      * 두 기업 모두 2022년부터 2023년까지 총 배출량이 증가하는 경향을 보였으나, 2024년에는 KB금융지주가 소폭 감소하며 안정화된 반면 SK이노베이션은 증가세를 유지했습니다. 이는 ESG 인식 및 공시 증가에도 불구하고, \*\*`산업 특성별로 실제 배출량 감축 난이도와 전략이 매우 다름`\*\*을 보여줍니다.
+
+
+#### 2.2. Scope 3 배출량까지 포함했을 때의 인사이트 
+
+
+**온실가스(GHG) 배출량 상세 현황 (단위: tCO2eq) - Scope 1, 2, 3 포함**
 
 | 기업명 | 구분 | 2022 | 2023 | 2024 |
 | :----------- | :----------- | -----------: | -----------: | -----------: |
@@ -438,16 +446,18 @@ plt.show()
 
   * **KB금융지주 (금융)**:
 
-      * **인사이트**: Scope 3 데이터를 포함하자 KB금융지주의 총 온실가스 배출량은 2022년 약 14만 톤에서 **2023년에 약 83만 톤으로 급격히 증가**했습니다. 이는 2023년부터 \*\*`Scope 3 공시 기준이 강화`\*\*되었거나, \*\*`투자 및 대출 포트폴리오의 탄소 집약도에 대한 정보 공개가 확대`\*\*되면서 이전에는 포함되지 않던 배출원이 보고서에 반영되었을 가능성이 큽니다. 특히 2023년 이후 Scope 3가 전체 배출량의 압도적인 비중(약 80% 이상)을 차지하게 되면서, 금융회사의 \*\*`실질적인 탄소 감축 노력은 본업(투자/대출)을 통한 포트폴리오 배출량 관리에 달려 있음`\*\*을 명확히 보여줍니다. 이는 TCFD(기후 관련 재무정보 공개 협의체) 권고안과 같은 글로벌 공시 표준의 확산과도 밀접한 관련이 있으며, 금융의 본원적 기능을 통한 사회적 책임 이행의 중요성을 강조합니다.
+      * **Scope 1, 2만 고려 시 인사이트**: KB금융지주의 총 온실가스 배출량은 약 12만\~15만 톤 수준으로, 사업장 운영에 따른 Scope 2 배출량이 대부분을 차지하며 안정화되는 추세를 보입니다. 이는 금융회사가 직접적인 물리적 배출보다는 사무실 운영 등에서 발생하는 간접 배출을 주로 관리한다는 일반적인 인식을 뒷받침합니다.
+      * **Scope 3 추가 시 얻는 추가 인사이트**: Scope 3 데이터를 포함하자 KB금융지주의 총 온실가스 배출량은 2022년 약 14만 톤에서 \*\*2023년에 약 83만 톤으로 `약 5배 이상 급증`\*\*했습니다. 이는 Scope 1, 2만으로는 볼 수 없었던 \*\*`금융회사의 진정한 탄소 발자국 규모`\*\*를 드러냅니다. 특히 2023년 이후 Scope 3가 전체 배출량의 \*\*`압도적인 비중(약 80% 이상)`\*\*을 차지하게 되면서, 금융회사의 \*\*`실질적인 탄소 감축 노력은 본업(투자/대출)을 통한 포트폴리오 배출량 관리에 달려 있음`\*\*을 명확히 보여줍니다. 이는 TCFD(기후 관련 재무정보 공개 협의체) 권고안과 같은 글로벌 공시 표준의 확산과도 밀접한 관련이 있으며, 금융의 본원적 기능을 통한 사회적 책임 이행의 중요성을 강조합니다. **Scope 3의 추가는 금융회사의 환경적 영향에 대한 이해를 `사업장 운영`에서 `금융 포트폴리오`로 확장시키는 결정적인 전환점을 제공합니다.**
 
   * **SK이노베이션 (제조/에너지)**:
 
-      * **인사이트**: SK이노베이션의 경우 Scope 3 배출량이 Scope 1 및 Scope 2 배출량을 훨씬 압도하며, **총 배출량의 90% 이상을 차지**하고 지속적으로 증가하고 있습니다. 이는 제조업/에너지 기업의 \*\*`진정한 탄소 발자국이 생산 공정 자체보다는 제품의 사용 단계(예: 판매된 석유화학 제품, 연료의 연소)`\*\*와 \*\*`공급망 전반(원재료 생산 및 운송)`\*\*에서 발생함을 극명하게 보여줍니다. 이 데이터는 SK이노베이션이 탄소중립 목표를 달성하기 위해 \*\*`친환경 제품 전환(예: 전기차 배터리, 폐플라스틱 재활용)`\*\*과 \*\*`고객 및 공급망 파트너와의 협력을 통한 가치사슬 전반의 배출량 감축`\*\*이 필수적임을 강력히 시사합니다. 단순한 공정 효율 개선을 넘어선 \*\*`사업 포트폴리오의 근본적인 전환`\*\*이 장기적인 감축의 핵심 과제임을 드러냅니다.
+      * **Scope 1, 2만 고려 시 인사이트**: SK이노베이션의 온실가스 배출량(Scope 1+2)은 약 1,100만 톤 수준으로, 직접 온실가스(Scope 1)가 압도적인 비중(약 80% 이상)을 차지하며 지속적으로 증가하는 추세를 보였습니다. 이는 제조 및 에너지 생산 과정에서 발생하는 공정 배출 및 연료 연소가 주된 원인임을 보여주며, 생산량 증가와 탈탄소화 기술 적용의 어려움을 시사합니다.
+      * **Scope 3 추가 시 얻는 추가 인사이트**: SK이노베이션의 경우 Scope 3 배출량이 Scope 1 및 Scope 2 배출량을 **`훨씬 압도하며(약 10배 이상)`**, \*\*총 배출량의 `90% 이상을 차지`\*\*하고 지속적으로 증가하고 있습니다. 이는 제조업/에너지 기업의 \*\*`진정한 탄소 발자국이 생산 공정 자체보다는 제품의 사용 단계(예: 판매된 석유화학 제품, 연료의 연소)`\*\*와 \*\*`공급망 전반(원재료 생산 및 운송)`\*\*에서 발생함을 극명하게 보여줍니다. 이 데이터는 SK이노베이션이 탄소중립 목표를 달성하기 위해 \*\*`친환경 제품 전환(예: 전기차 배터리, 폐플라스틱 재활용)`\*\*과 \*\*`고객 및 공급망 파트너와의 협력을 통한 가치사슬 전반의 배출량 감축`\*\*이 필수적임을 강력히 시사합니다. **Scope 3의 추가는 제조/에너지 기업의 탄소 감축 노력이 `공장 내부`를 넘어 `전체 가치사슬`로 확장되어야 함을 분명히 보여줍니다.**
 
   * **비교**:
 
-      * Scope 3 데이터가 추가되면서 두 기업의 총 온실가스 배출량 규모와 주요 배출원의 차이가 더욱 극명해졌습니다. SK이노베이션은 \*\*`제품 사용 단계`\*\*가 가장 큰 배출원이며, 이는 사업 모델의 근본적인 변화 없이는 탄소 감축이 어렵다는 것을 보여줍니다. 반면, KB금융지주는 \*\*`투자/대출 포트폴리오`\*\*가 주요 배출원이며, 이는 금융 활동을 통해 사회 전반의 탈탄소화를 유도하는 \*\*`영향력 기반의 탄소 감축 전략`\*\*이 중요함을 시사합니다.
-      * 두 기업 모두 Scope 3 배출량이 압도적인 비중을 차지하게 됨으로써, 기업의 ESG 성과 평가에 있어 \*\*`직접적인 운영 배출량(Scope 1, 2)뿐만 아니라 가치사슬 전반의 간접 배출량(Scope 3)에 대한 이해와 관리 능력`\*\*이 핵심 역량이 되고 있음을 보여줍니다.
+      * **Scope 1, 2만 고려 시 비교**: 두 기업 간 GHG 배출량 규모의 상당한 차이(SK이노베이션이 KB금융지주보다 약 100배 이상 높음)는 산업별 특성에서 기인하며, SK이노베이션은 직접 배출량이, KB금융지주는 간접 배출량(Scope 2)이 주된 부담임을 보여줍니다.
+      * **Scope 3 추가 시 얻는 추가 인사이트**: Scope 3 데이터가 추가되면서 두 기업의 **`총 온실가스 배출량 규모와 주요 배출원의 차이가 더욱 극명해졌습니다.`** SK이노베이션은 \*\*`제품 사용 단계`\*\*가 가장 큰 배출원이며, 이는 사업 모델의 근본적인 변화 없이는 탄소 감축이 어렵다는 것을 보여줍니다. 반면, KB금융지주는 \*\*`투자/대출 포트폴리오`\*\*가 주요 배출원이며, 이는 금융 활동을 통해 사회 전반의 탈탄소화를 유도하는 \*\*`영향력 기반의 탄소 감축 전략`\*\*이 중요함을 시사합니다. **Scope 3의 추가는 기업의 ESG 성과 평가에 있어 `직접적인 운영 배출량(Scope 1, 2)뿐만 아니라 가치사슬 전반의 간접 배출량(Scope 3)에 대한 이해와 관리 능력`이 핵심 역량이 되고 있음을 보여주는 결정적인 증거가 됩니다.** 이는 기업의 ESG 리스크와 기회를 훨씬 더 포괄적으로 평가할 수 있게 합니다.
 
 -----
 
@@ -465,7 +475,7 @@ plt.show()
 
   * **데이터 추출 및 전처리**: 원시적이고 종종 정성적인 보고서 데이터를 구조화되고 분석 가능한 형식으로 변환하는 과정의 중요성과 어려움(예: `GHG_Emissions` 컬럼의 쉼표 처리)을 이해했습니다. 이는 **방대한 비재무적 데이터로부터 신뢰성 있는 정보를 추출하고 분석 기반을 마련하는 삼일회계법인의 핵심 역할**에 대한 저의 이해와 준비도를 입증합니다.
   * **통찰력 있는 시각화**: 원본 숫자만으로는 즉시 드러나지 않는 복잡한 트렌드와 패턴을 시각적 분석이 어떻게 드러낼 수 있는지 확인했습니다. 이는 **회계 정보의 본질인 '정보 전달'에 있어 시각화가 가진 강력한 힘**을 깨달았음을 의미합니다. 저는 복잡한 감사 결과나 자문 보고서를 고객이 직관적으로 이해할 수 있도록 **데이터 시각화 역량을 활용**할 준비가 되어 있습니다.
-  * **비판적 데이터 해석**: 단순히 데이터를 제시하는 것을 넘어, 트렌드를 해석하고, 다른 엔티티(기업/산업)를 비교하며, 이를 더 넓은 비즈니스 맥락 및 외부 요인(예: 산업 규제, 사회적 기대)과 연결하는 능력의 중요성을 깨달았습니다. 이는 **수치 너머의 의미를 파악하고, 재무 정보뿐 아니라 비재무적 정보까지 통합적으로 분석하여 고객에게 심층적인 자문을 제공해야 하는 회계사의 필수 역량**인 분석적 사고와 비판적 문제 해결 능력을 보여줍니다.
+  * **비판적 데이터 해석**: 단순히 데이터를 제시하는 것을 넘어, 트렌드를 해석하고, 다른 엔티티(기업/산업)를 비교하며, 이를 더 넓은 비즈니스 맥락 및 외부 요인(예: 산업 규제, 사회적 기대)과 연결하는 능력의 중요성을 깨달았습니다. 특히 **Scope 3 데이터의 추가가 기업의 환경적 영향에 대한 이해를 얼마나 심화시키고, 산업별 특성을 더욱 명확하게 드러내는지**를 직접 분석하며, **수치 너머의 의미를 파악하고, 재무 정보뿐 아니라 비재무적 정보까지 통합적으로 분석하여 고객에게 심층적인 자문을 제공해야 하는 회계사의 필수 역량**인 분석적 사고와 비판적 문제 해결 능력을 보여줍니다.
   * **비재무적 성과 이해**: ESG 요소와 같은 비재무적 지표가 기업 가치 및 지속가능성을 평가하는 데 얼마나 중요해지고 있는지 깊이 이해하게 되었습니다. 이는 **삼일회계법인이 미래 성장 동력으로 삼는 ESG 및 지속가능경영 분야에 대한 깊은 관심과 이론적/실무적 이해도**를 나타내며, 특히 **`ESG 정보의 신뢰성 검증(Assurance)` 및 `공시 관련 자문` 분야에서 기여**하고 싶은 저의 의지를 강조합니다.
 
 저는 이러한 역량이 삼일회계법인 디지털 트랙에 직접적으로 관련되고 매우 가치 있다고 생각합니다. 데이터를 활용하여 복잡한 기업 내러티브를 이해하고, 핵심 인사이트를 식별하며, 이를 명확하게 제시하는 저의 능력은 **재무 및 회계 분야에서 데이터 기반 감사, ESG 컨설팅 및 디지털 전환의 필요성**과 일치합니다. 삼일회계법인의 **`재무 정보와 비재무 정보를 아우르는 데이터 신뢰성 강화`**, **`고객 맞춤형의 통찰력 있는 ESG 자문 제공`**, 그리고 **`최신 디지털 기술을 활용한 감사 프로세스 혁신 및 효율화`** 에 기여하고 싶습니다.
