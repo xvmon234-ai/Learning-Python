@@ -1,4 +1,15 @@
-# --- [문제 4.3 데이터 재사용] ---
+# ==============================================================================
+# [문제 4.4] 단일 조건 필터링 (Day 4 학습 내용)
+# ==============================================================================
+
+# 문제 제시: 위 4.3 문제에서 생성한 DataFrame(df_students)에서 'Math' 점수가 80점 이상인 학생들만 필터링하여 출력해보세요.
+# 목표: 불리언 인덱싱을 사용하여 숫자 조건을 기준으로 DataFrame을 필터링하는 방법을 연습합니다.
+# 가이드: df[df['컬럼명'] 조건값] 형태를 사용하여 'Math' 컬럼에 대한 조건을 적용하세요.
+
+# --- [최초 나의 코딩] ---
+import pandas as pd
+from io import StringIO
+
 students_data = """StudentID,Name,Math,English,Grade
 S001,Alice,90,85,A
 S002,Bob,78,80,B
@@ -9,16 +20,6 @@ S004,David,60,70,C
 # 문제 4.3에서 'StudentID'를 인덱스로 설정했었으나, 문제 4.4에서는 인덱스 설정이 필수는 아닙니다.
 # 하지만 일관성을 위해 이전 문제와 동일하게 인덱스를 설정하여 사용하겠습니다.
 df_students = pd.read_csv(StringIO(students_data)).set_index("StudentID")
-
-
-# --- [문제 4.4] ---
-# 문제 제시: 위 4.3 문제에서 생성한 DataFrame(df_students)에서 'Math' 점수가 80점 이상인 학생들만 필터링하여 출력해보세요.
-# 목표: 불리언 인덱싱을 사용하여 숫자 조건을 기준으로 DataFrame을 필터링하는 방법을 연습합니다.
-# 가이드: df[df['컬럼명'] 조건값] 형태를 사용하여 'Math' 컬럼에 대한 조건을 적용하세요.
-
-# --- [최초 나의 코딩] ---
-import pandas as pd
-from io import StringIO
 
 df_high_math = df_students[df_students["Math"] >= 80]
 
