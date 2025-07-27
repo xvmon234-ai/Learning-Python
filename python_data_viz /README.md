@@ -154,7 +154,7 @@ plt.savefig(os.path.join(output_dir, 'environmental_keyword_trend.png'), dpi=300
 plt.show()
 ```
 
-![](images/environment_keyword_trend.png)
+![](images/environmental_keyword_trend.png)
 
 *설명: KB금융지주와 SK이노베이션의 환경(E) 키워드 언급 빈도 추이.*
 
