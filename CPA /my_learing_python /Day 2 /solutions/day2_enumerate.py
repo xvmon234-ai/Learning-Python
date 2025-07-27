@@ -8,12 +8,12 @@
 
 
 # --- [최초 나의 코딩] ---
-# my_list = ['사과', '바나나', '체리']
-#
-# for index, fruit in enumerate(my_list):
-#     print(f"{index}: {fruit}")
-#
-# # 여기서 for x in list 를 하면, x 에 새로운 변수를 할당하는 개념이라는 것을 잊지 말기
+ my_list = ['사과', '바나나', '체리']
+
+ for index, fruit in enumerate(my_list):
+     print(f"{index}: {fruit}")
+
+# 여기서 for x in list 를 하면, x 에 새로운 변수를 할당하는 개념이라는 것을 잊지 말기
 
 # --- [코드 실행 결과] ---
 """
