@@ -187,9 +187,9 @@ import seaborn as sns
 import os
 
 # 데이터 로드 및 전처리 (실제 실행 환경에 맞게 조정 필요)
-# df = pd.read_csv('esg_data.csv')
-# df.columns = df.columns.str.strip() # 컬럼명 공백 제거
-# df['GHG_Emissions'] = df['GHG_Emissions'].str.replace(',', '').astype(float)
+df = pd.read_csv('esg_data.csv')
+df.columns = df.columns.str.strip() # 컬럼명 공백 제거
+df['GHG_Emissions'] = df['GHG_Emissions'].str.replace(',', '').astype(float)
 
 # 공통 설정 (전체 코드에서 정의)
 company_order = ['KB Financial Group Inc.', 'SK Innovation Co., Ltd.']
@@ -268,9 +268,9 @@ import seaborn as sns
 import os
 
 # 데이터 로드 및 전처리 (실제 실행 환경에 맞게 조정 필요)
-# df = pd.read_csv('esg_data.csv')
-# df.columns = df.columns.str.strip() # 컬럼명 공백 제거
-# df['GHG_Emissions'] = df['GHG_Emissions'].str.replace(',', '').astype(float)
+df = pd.read_csv('esg_data.csv')
+df.columns = df.columns.str.strip() # 컬럼명 공백 제거
+df['GHG_Emissions'] = df['GHG_Emissions'].str.replace(',', '').astype(float)
 
 # 공통 설정 (전체 코드에서 정의)
 company_order = ['KB Financial Group Inc.', 'SK Innovation Co., Ltd.']
@@ -347,10 +347,10 @@ import seaborn as sns
 import os
 
 # 데이터 로드 및 전처리 (실제 실행 환경에 맞게 조정 필요)
-# df = pd.read_csv('ghg_data.csv') # ghg_data.csv 사용
-# df.columns = df.columns.str.strip() # 컬럼명 공백 제거
-# df['GHG_Emissions'] = df['GHG_Emissions'].str.replace(',', '').astype(float)
-# df['Total_Emissions'] = df['Total_Emissions'].str.replace(',', '').astype(float) # Total_Emissions도 전처리
+df = pd.read_csv('ghg_data.csv') # ghg_data.csv 사용
+df.columns = df.columns.str.strip() # 컬럼명 공백 제거
+df['GHG_Emissions'] = df['GHG_Emissions'].str.replace(',', '').astype(float)
+df['Total_Emissions'] = df['Total_Emissions'].str.replace(',', '').astype(float) # Total_Emissions도 전처리
 
 # 공통 설정 (전체 코드에서 정의)
 company_order = ['KB Financial Group Inc.', 'SK Innovation Co., Ltd.']
@@ -441,10 +441,10 @@ import seaborn as sns
 import os
 
 # 데이터 로드 및 전처리 (실제 실행 환경에 맞게 조정 필요)
-# df = pd.read_csv('ghg_data.csv') # ghg_data.csv 사용
-# df.columns = df.columns.str.strip() # 컬럼명 공백 제거
-# df['GHG_Emissions'] = df['GHG_Emissions'].str.replace(',', '').astype(float)
-# df['Total_Emissions'] = df['Total_Emissions'].str.replace(',', '').astype(float)
+df = pd.read_csv('ghg_data.csv') # ghg_data.csv 사용
+df.columns = df.columns.str.strip() # 컬럼명 공백 제거
+df['GHG_Emissions'] = df['GHG_Emissions'].str.replace(',', '').astype(float)
+df['Total_Emissions'] = df['Total_Emissions'].str.replace(',', '').astype(float)
 
 # 공통 설정 (전체 코드에서 정의)
 company_order = ['KB Financial Group Inc.', 'SK Innovation Co., Ltd.']
