@@ -29,7 +29,7 @@
 
 -----
 
-### 🗓️ Day-by-Day 학습 로드맵
+### [**🗓️ Day-by-Day 학습 로드맵**](https://github.com/xvmon234-ai/Learning-Python/tree/main/CPA%20/my_learing_python%20)
 
 각 Day별 학습 내용은 해당 일자의 폴더 또는 파일에 상세히 기록되어 있습니다.
 
