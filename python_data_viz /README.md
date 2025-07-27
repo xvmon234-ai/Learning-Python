@@ -67,6 +67,7 @@ plt.tight_layout()
 # plt.savefig('images/e_keyword_freq_trend.png') # README에서는 이미지 저장/표시 대신 코드만 제시
 # plt.show()
 ```
+![](images/e_keyword_freq_trend.png)
 
 *설명: KB금융지주와 SK이노베이션의 환경(E) 키워드 언급 빈도 추이.*
 
