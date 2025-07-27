@@ -120,7 +120,7 @@
     3.  `df_grades`의 **정보(info)를 출력**하여 인덱스가 올바르게 설정되었고, 원본 컬럼들이 제거되었는지 확인하세요.
     4.  `df_grades`의 **인덱스 자체를 출력**하세요.
 
-[▶️ **정답 코드 보러가기**](./solutions/day3_lndex_2.py)
+[▶️ **정답 코드 보러가기**](./solutions/day3_index_2.py)
 
 
 [📚 **추가 학습 보러가기 (1)**](./further_study/multi_index.py)
