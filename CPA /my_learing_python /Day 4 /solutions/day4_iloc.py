@@ -1,4 +1,15 @@
-# --- [문제 4.1 데이터 재사용] ---
+# ==============================================================================
+# [문제 4.2] 행 위치 기반 선택 (.iloc[] 활용) (Day 4 학습 내용)
+# ==============================================================================
+
+# 문제 제시: 위 4.1 문제에서 생성한 DataFrame에서 `.iloc[]`을 사용하여 첫 번째 행과 세 번째 행만 선택하여 출력해보세요.
+# 목표: `.iloc[]`를 사용하여 특정 위치의 행을 정확히 선택하는 방법을 연습합니다.
+# 가이드: `pandas` 라이브러리의 `read_csv`와 `StringIO`를 사용하여 DataFrame을 생성한 뒤, 리스트(`[]`) 안에 원하는 행의 정수 인덱스(0부터 시작)를 넣어 `.iloc[]`에 전달하세요.
+
+# --- [최초 나의 코딩] ---
+import pandas as pd
+from io import StringIO
+
 products_data = """OrderID,Product,Quantity,Price
 1,Laptop,1,1200
 2,Mouse,2,25
@@ -7,17 +18,6 @@ products_data = """OrderID,Product,Quantity,Price
 """
 
 df_products = pd.read_csv(StringIO(products_data))
-
-
-# --- [문제 4.2] ---
-# 문제 제시: 위 4.1 문제에서 생성한 DataFrame에서 `.iloc[]`을 사용하여 첫 번째 행과 세 번째 행만 선택하여 출력해보세요.
-# 목표: `.iloc[]`를 사용하여 특정 위치의 행을 정확히 선택하는 방법을 연습합니다.
-# 가이드: `pandas` 라이브러리의 `read_csv`와 `StringIO`를 사용하여 DataFrame을 생성한 뒤, 리스트(`[]`) 안에 원하는 행의 정수 인덱스(0부터 시작)를 넣어 `.iloc[]`에 전달하세요.
-
-# --- [최초 나의 코딩] ---
-
-import pandas as pd
-from io import StringIO
 
 print("\n --- df_product row 1, row 3 --- ")
 print(df_products.iloc[[1, 3]])
