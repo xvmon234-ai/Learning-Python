@@ -8,16 +8,16 @@
 
 
 # --- [최초 나의 코딩] ---
-# grade = int(input("성적을 입력하세요: "))
-#
-# if grade >= 90:
-#     print(f"해당 성적은 A입니다.")
-# elif 90 > grade >= 80: # 위에 x >= 90 했으면 90 > 이거 안해도 된다고 했는데 효율적이지 못했음
-#     print(f"해당 성적은 B입니다.")
-# elif 80 > grade >= 70:
-#     print(f"해당 성적은 C입니다.")
-# else:
-#     print(f"해당 성적은 F입니다.")
+grade = int(input("성적을 입력하세요: "))
+
+if grade >= 90:
+    print(f"해당 성적은 A입니다.")
+elif 90 > grade >= 80: # 위에 x >= 90 했으면 90 > 이거 안해도 된다고 했는데 효율적이지 못했음
+    print(f"해당 성적은 B입니다.")
+elif 80 > grade >= 70:
+    print(f"해당 성적은 C입니다.")
+else:
+    print(f"해당 성적은 F입니다.")
 
 # --- [코드 실행 결과] ---
 """
