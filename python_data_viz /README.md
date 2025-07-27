@@ -102,9 +102,9 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import os # 'images' 디렉토리 생성을 위해 os 모듈 추가
 
-# 데이터 로드 및 전처리 (실제 실행 환경에 맞게 조정 필요)
-# df = pd.read_csv('esg_data.csv')
-# df['GHG_Emissions'] = df['GHG_Emissions'].str.replace(',', '').astype(float)
+# 데이터 로드 및 전처리 
+df = pd.read_csv('esg_data.csv')
+df['GHG_Emissions'] = df['GHG_Emissions'].str.replace(',', '').astype(float)
 
 # 공통 설정 (전체 코드에서 정의)
 company_order = ['KB Financial Group Inc.', ' SK Innovation Co., Ltd.']
