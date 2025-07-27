@@ -511,7 +511,7 @@ plt.show()
 
 
 [**KB 금융지주의 GHG 비교 분석 그래프**]
-![](images/sk_innovation_ghg_comparison.png)
+![](images/kb_financial_gruop_ghg_comparison.png)
 
 
 *설명: KB금융지주와 SK이노베이션의 온실가스(GHG) 배출량 비교 (Scope 1+2 vs Scope 1+2+3 포함).*
