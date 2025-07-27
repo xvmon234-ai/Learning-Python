@@ -53,7 +53,7 @@
 
       * **가장 중요합니다\!** `esg_data.csv` 파일이 이 프로젝트를 실행할 디렉토리 내에 있어야 합니다.
       * 이 CSV 파일은 다음 헤더를 포함해야 합니다: `Company`, `Year`, `E_Keyword_Freq`, `S_Keyword_Freq`, `G_Keyword_Freq`, `GHG_Emissions`.
-      * 특히 `Company` 컬럼에는 `KB Financial Group Inc.` 및 `  SK Innovation Co., Ltd. ` (SK 혁신의 경우 선행 공백이 포함된 정확한 이름)와 같은 정확한 기업명이 포함되어야 합니다.
+      * 특히 `Company` 컬럼에는 `KB Financial Group Inc.` 및 `  SK Innovation Co., Ltd. ` (SK이노베이션의 경우 선행 공백이 포함된 정확한 이름)와 같은 정확한 기업명이 포함되어야 합니다.
 
 2.  **필수 라이브러리 설치**:
 
