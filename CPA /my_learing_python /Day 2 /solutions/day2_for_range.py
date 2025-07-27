@@ -8,12 +8,12 @@
 
 
 # --- [최초 나의 코딩] ---
-# total_sum = 0
-#
-# for num in range(10): # range(10)은 0부터 9까지의 숫자를 생성함
-#     total_sum += num
-#
-# print(f"합계 : {total_sum}") # 이 시점의 합계는 45 (0부터 9까지의 합)
+ total_sum = 0
+
+ for num in range(10): # range(10)은 0부터 9까지의 숫자를 생성함
+     total_sum += num
+
+ print(f"합계 : {total_sum}") # 이 시점의 합계는 45 (0부터 9까지의 합)
 
 # --- [코드 실행 결과] ---
 """
