@@ -1,7 +1,3 @@
-네, Scope 1, 2 배출량만을 고려했을 때의 인사이트와 Scope 3까지 포함했을 때의 인사이트를 각각 제시하여 Scope 3 데이터의 추가가 어떤 심층적인 이해를 제공하는지 강조해 드리겠습니다.
-
------
-
 # ESG 공시 트렌드 분석: KB금융지주 & SK이노베이션
 
 ### 🚀 프로젝트 개요
@@ -40,10 +36,10 @@
 
   * **데이터 출처**: 지속가능경영보고서 (수동 수집).
   * **데이터 추출**: 핵심 키워드 빈도(E, S, G 카테고리별) 및 온실가스(GHG) 배출량 데이터를 보고서에서 수동으로 추출했습니다.
-  * **데이터 형식**: 추출된 데이터는 CSV 파일(`esg_data.csv`)로 통합되었습니다.
+  * **데이터 형식**: 추출된 데이터는 CSV 파일(`ghg_data.csv`, `esg_data.csv` 등으로 통합)로 통합되었습니다.
   * **전처리 단계**:
       * 일관성과 처리를 용이하게 하기 위해 CSV 헤더 이름이 영어로 표준화되었습니다 (예: `탄소배출_빈도` → `E_Keyword_Freq`).
-      * `GHG_Emissions` 컬럼은 쉼표 구분자(예: `128,987`)로 인해 초기에는 `object`(문자열)로 로드되었으나, 숫자 분석 및 올바른 시각화를 위해 쉼표를 제거하고 `float` 데이터 타입으로 변환했습니다.
+      * `GHG_Emissions` 및 `Total_Emissions` 컬럼은 쉼표 구분자(예: `128,987`)로 인해 초기에는 `object`(문자열)로 로드되었으나, 숫자 분석 및 올바른 시각화를 위해 쉼표를 제거하고 `float` 데이터 타입으로 변환했습니다. 또한, 컬럼 이름에 포함될 수 있는 불필요한 공백을 제거하여 `KeyError`를 방지했습니다.
 
 -----
 
@@ -51,11 +47,10 @@
 
 이 프로젝트를 실행하고 그래프를 생성하기 위해 다음 단계를 따르십시오.
 
-1.  **`esg_data.csv` 파일 준비**:
+1.  **`ghg_data.csv` 및 `esg_data.csv` 파일 준비**:
 
-      * **가장 중요합니다\!** `esg_data.csv` 파일이 이 프로젝트를 실행할 디렉토리 내에 있어야 합니다.
-      * 이 CSV 파일은 다음 헤더를 포함해야 합니다: `Company`, `Year`, `E_Keyword_Freq`, `S_Keyword_Freq`, `G_Keyword_Freq`, `GHG_Emissions`.
-      * 특히 `Company` 컬럼에는 `KB Financial Group Inc.` 및 `SK Innovation Co., Ltd.` (SK이노베이션의 경우 선행 공백이 포함된 정확한 이름)와 같은 정확한 기업명이 포함되어야 합니다.
+      * **가장 중요합니다\!** 분석에 필요한 CSV 파일(`ghg_data.csv`, `esg_data.csv` 등)이 이 프로젝트를 실행할 디렉토리 내에 있어야 합니다.
+      * 특히 `Company` 컬럼에는 `KB Financial Group Inc.` 및 `SK Innovation Co., Ltd.`와 같은 정확한 기업명이 포함되어야 합니다.
 
 2.  **필수 라이브러리 설치**:
 
@@ -86,7 +81,9 @@
 
 **참고**: 아래 코드 블록은 전체 스크립트 중 각 지표를 시각화하는 부분만 발췌한 것입니다. 전체 코드는 `esg_analysis.py` 파일을 참조하십시오.
 
-[**전체 코드 보러가기**](https://www.google.com/search?q=./coding/esg_analysis.py)
+[**ESG 분석 코드 보러가기**](https://www.google.com/search?q=./coding/esg_analysis.py)
+
+[**GHG 분석 코드 보러가기**](https://www.google.com/search?q=./coding/ghg_analysis.py)
 
 -----
 
@@ -108,11 +105,12 @@ import os # 'images' 디렉토리 생성을 위해 os 모듈 추가
 
 # 데이터 로드 및 전처리
 df = pd.read_csv('esg_data.csv')
+df.columns = df.columns.str.strip() # 컬럼명 공백 제거
 df['GHG_Emissions'] = df['GHG_Emissions'].str.replace(',', '').astype(float)
 
 # 공통 설정 (전체 코드에서 정의)
-company_order = ['KB Financial Group Inc.', 'SK Innovation Co., Ltd.'] # 공백 제거
-palette = {'KB Financial Group Inc.': '#4C72B0', 'SK Innovation Co., Ltd.': '#C44E52'} # 공백 제거
+company_order = ['KB Financial Group Inc.', 'SK Innovation Co., Ltd.']
+palette = {'KB Financial Group Inc.': '#4C72B0', 'SK Innovation Co., Ltd.': '#C44E52'}
 plt.style.use('seaborn-v0_8-whitegrid')
 plt.rcParams['font.family'] = 'DejaVu Sans'
 plt.rcParams['axes.unicode_minus'] = False
@@ -190,11 +188,12 @@ import os
 
 # 데이터 로드 및 전처리 (실제 실행 환경에 맞게 조정 필요)
 # df = pd.read_csv('esg_data.csv')
+# df.columns = df.columns.str.strip() # 컬럼명 공백 제거
 # df['GHG_Emissions'] = df['GHG_Emissions'].str.replace(',', '').astype(float)
 
 # 공통 설정 (전체 코드에서 정의)
-company_order = ['KB Financial Group Inc.', 'SK Innovation Co., Ltd.'] # 공백 제거
-palette = {'KB Financial Group Inc.': '#4C72B0', 'SK Innovation Co., Ltd.': '#C44E52'} # 공백 제거
+company_order = ['KB Financial Group Inc.', 'SK Innovation Co., Ltd.']
+palette = {'KB Financial Group Inc.': '#4C72B0', 'SK Innovation Co., Ltd.': '#C44E52'}
 plt.style.use('seaborn-v0_8-whitegrid')
 plt.rcParams['font.family'] = 'DejaVu Sans'
 plt.rcParams['axes.unicode_minus'] = False
@@ -270,11 +269,12 @@ import os
 
 # 데이터 로드 및 전처리 (실제 실행 환경에 맞게 조정 필요)
 # df = pd.read_csv('esg_data.csv')
+# df.columns = df.columns.str.strip() # 컬럼명 공백 제거
 # df['GHG_Emissions'] = df['GHG_Emissions'].str.replace(',', '').astype(float)
 
 # 공통 설정 (전체 코드에서 정의)
-company_order = ['KB Financial Group Inc.', 'SK Innovation Co., Ltd.'] # 공백 제거
-palette = {'KB Financial Group Inc.': '#4C72B0', 'SK Innovation Co., Ltd.': '#C44E52'} # 공백 제거
+company_order = ['KB Financial Group Inc.', 'SK Innovation Co., Ltd.']
+palette = {'KB Financial Group Inc.': '#4C72B0', 'SK Innovation Co., Ltd.': '#C44E52'}
 plt.style.use('seaborn-v0_8-whitegrid')
 plt.rcParams['font.family'] = 'DejaVu Sans'
 plt.rcParams['axes.unicode_minus'] = False
@@ -347,8 +347,10 @@ import seaborn as sns
 import os
 
 # 데이터 로드 및 전처리 (실제 실행 환경에 맞게 조정 필요)
-# df = pd.read_csv('esg_data.csv')
+# df = pd.read_csv('ghg_data.csv') # ghg_data.csv 사용
+# df.columns = df.columns.str.strip() # 컬럼명 공백 제거
 # df['GHG_Emissions'] = df['GHG_Emissions'].str.replace(',', '').astype(float)
+# df['Total_Emissions'] = df['Total_Emissions'].str.replace(',', '').astype(float) # Total_Emissions도 전처리
 
 # 공통 설정 (전체 코드에서 정의)
 company_order = ['KB Financial Group Inc.', 'SK Innovation Co., Ltd.']
@@ -360,9 +362,19 @@ output_dir = 'images'
 if not os.path.exists(output_dir):
     os.makedirs(output_dir)
 
-plt.figure(figsize=(10, 6))
-sns.lineplot(data=df, x='Year', y='GHG_Emissions', hue='Company', marker='o',
-             hue_order=company_order, palette=palette, linewidth=2.5)
+# SK Innovation 데이터 추출 (Scope 1+2)
+sk_df_s12 = df[df['Company'] == 'SK Innovation Co., Ltd.'].copy()
+# KB Financial Group 데이터 추출 (Scope 1+2)
+kb_df_s12 = df[df['Company'] == 'KB Financial Group Inc.'].copy()
+
+plt.figure(figsize=(12, 7))
+
+# SK Innovation 그래프
+plt.plot(sk_df_s12['Year'], sk_df_s12['GHG_Emissions'], marker='o', label='SK Innovation (Scope 1+2)', color=palette['SK Innovation Co., Ltd.'], linewidth=2.5)
+# KB Financial Group 그래프
+plt.plot(kb_df_s12['Year'], kb_df_s12['GHG_Emissions'], marker='o', label='KB Financial Group (Scope 1+2)', color=palette['KB Financial Group Inc.'], linewidth=2.5)
+
+
 plt.title('Company-wise GHG Emissions Trend (Scope 1+2 only) (2022-2024)', fontsize=16, fontweight='bold', pad=20)
 plt.xlabel('Year', fontsize=12, labelpad=10)
 plt.ylabel('GHG Emissions (tCO2eq)', fontsize=12, labelpad=10)
@@ -373,46 +385,39 @@ plt.ticklabel_format(style='plain', axis='y')
 plt.legend(title='Company', title_fontsize='12', fontsize='10',
            loc='upper left', frameon=True, shadow=True, borderpad=1)
 
-# 어노테이션 추가 (예시)
-sk_2024_ghg_data = df[(df['Company'] == 'SK Innovation Co., Ltd.') & (df['Year'] == 2024)]['GHG_Emissions'].values
-if len(sk_2024_ghg_data) > 0:
-    sk_2024_ghg = sk_2024_ghg_data[0]
-    plt.annotate(f'{sk_2024_ghg:,.0f}', xy=(2024, sk_2024_ghg), xytext=(2024.1, sk_2024_ghg + 500000),
+# Annotate points for clarity
+for _, row in sk_df_s12.iterrows():
+    plt.annotate(f'{row["GHG_Emissions"] / 1_000_000:,.1f}M', xy=(row['Year'], row['GHG_Emissions']),
+                 xytext=(row['Year'] - 0.2, row['GHG_Emissions'] + 500000),
                  arrowprops=dict(facecolor='black', shrink=0.05, width=1, headwidth=5),
-                 fontsize=9, color='black', ha='left')
-else:
-    print("Warning: No data found for SK Innovation Co., Ltd. in 2024 for GHG Emissions. Skipping annotation.")
+                 fontsize=9, color=palette['SK Innovation Co., Ltd.'], ha='center')
 
-kb_2024_ghg_data = df[(df['Company'] == 'KB Financial Group Inc.') & (df['Year'] == 2024)]['GHG_Emissions'].values
-if len(kb_2024_ghg_data) > 0:
-    kb_2024_ghg = kb_2024_ghg_data[0]
-    plt.annotate(f'{kb_2024_ghg:,.0f}', xy=(2024, kb_2024_ghg), xytext=(2024.1, kb_2024_ghg + 10000),
+for _, row in kb_df_s12.iterrows():
+    plt.annotate(f'{row["GHG_Emissions"]:,.0f}', xy=(row['Year'], row['GHG_Emissions']),
+                 xytext=(row['Year'] + 0.2, row['GHG_Emissions'] + 10000),
                  arrowprops=dict(facecolor='black', shrink=0.05, width=1, headwidth=5),
-                 fontsize=9, color='black', ha='left')
-else:
-    print("Warning: No data found for KB Financial Group Inc. in 2024 for GHG Emissions. Skipping annotation.")
+                 fontsize=9, color=palette['KB Financial Group Inc.'], ha='center')
+
 
 plt.tight_layout()
-plt.savefig(os.path.join(output_dir, 'ghg_emissions_trend_enhanced.png'), dpi=300, bbox_inches='tight')
+plt.savefig(os.path.join(output_dir, 'ghg_emissions_trend_scope12.png'), dpi=300, bbox_inches='tight') # 파일명 변경
 plt.show()
 ```
 
-
-![](images/ghg_emissions_trend_enhanced.png)
-
+![](images/social_keyword_trend.png)
 
 *설명: KB금융지주와 SK이노베이션의 온실가스(GHG) 배출량 추이 (Scope 1, 2만 포함).*
 
 **온실가스(GHG) 배출량 상세 현황 (단위: tCO2eq) - Scope 1, 2만 포함**
 
-| 기업명 | 구분 | 2022 | 2023 | 2024 |
-| :------- | :----------- | -----------: | -----------: | -----------: |
-| **KB금융지주** | 직접 온실가스 (Scope 1) | 13,993 | 23,325 | 22,510 |
-| | 간접 온실가스 (Scope 2) | 114,994 | 132,121 | 132,814 |
-| | **총 배출량 (합계)** | **128,987** | **155,446** | **155,324** |
-| **SK이노베이션** | 직접 온실가스 (Scope 1) | 9,116,619 | 9,379,375 | 9,434,690 |
-| | 간접 온실가스 (Scope 2) | 2,026,406 | 2,275,526 | 2,258,457 |
-| | **총 배출량 (합계)** | **11,143,025** | **11,654,901** | **11,693,147** |
+| 기업명       | 구분               | 2022         | 2023         | 2024         |
+| :----------- | :----------------- | -----------: | -----------: | -----------: |
+| **KB금융지주** | 직접 온실가스 (Scope 1)  | 13,993       | 23,325       | 22,510       |
+|              | 간접 온실가스 (Scope 2)  | 114,994      | 132,121      | 132,814      |
+|              | **총 배출량 (합계)** | **128,987** | **155,446** | **155,324** |
+| **SK이노베이션** | 직접 온실가스 (Scope 1)  | 9,116,619    | 9,379,375    | 9,434,690    |
+|              | 간접 온실가스 (Scope 2)  | 2,026,406    | 2,275,526    | 2,258,457    |
+|              | **총 배출량 (합계)** | **11,143,025** | **11,654,901** | **11,693,147** |
 
   * **KB금융지주 (금융)**:
 
@@ -427,22 +432,102 @@ plt.show()
       * 두 기업 간 GHG 배출량 규모의 상당한 차이는 `산업별 특성`에서 기인합니다. SK이노베이션은 **생산 공정에서 발생하는 직접 배출량(Scope 1)이 주된 부담**이며 절대적인 배출량이 훨씬 큰 반면, KB금융지주는 **사업장 운영 관련 간접 배출량(Scope 2)의 비중이 높고 절대적인 규모는 훨씬 작습니다.**
       * 두 기업 모두 2022년부터 2023년까지 총 배출량이 증가하는 경향을 보였으나, 2024년에는 KB금융지주가 소폭 감소하며 안정화된 반면 SK이노베이션은 증가세를 유지했습니다. 이는 ESG 인식 및 공시 증가에도 불구하고, \*\*`산업 특성별로 실제 배출량 감축 난이도와 전략이 매우 다름`\*\*을 보여줍니다.
 
+#### 2.2. Scope 3 배출량까지 포함했을 때의 인사이트
 
-#### 2.2. Scope 3 배출량까지 포함했을 때의 인사이트 
+```python
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import os
 
+# 데이터 로드 및 전처리 (실제 실행 환경에 맞게 조정 필요)
+# df = pd.read_csv('ghg_data.csv') # ghg_data.csv 사용
+# df.columns = df.columns.str.strip() # 컬럼명 공백 제거
+# df['GHG_Emissions'] = df['GHG_Emissions'].str.replace(',', '').astype(float)
+# df['Total_Emissions'] = df['Total_Emissions'].str.replace(',', '').astype(float)
+
+# 공통 설정 (전체 코드에서 정의)
+company_order = ['KB Financial Group Inc.', 'SK Innovation Co., Ltd.']
+palette = {'KB Financial Group Inc.': '#4C72B0', 'SK Innovation Co., Ltd.': '#C44E52'}
+plt.style.use('seaborn-v0_8-whitegrid')
+plt.rcParams['font.family'] = 'DejaVu Sans'
+plt.rcParams['axes.unicode_minus'] = False
+output_dir = 'images'
+if not os.path.exists(output_dir):
+    os.makedirs(output_dir)
+
+# SK Innovation 데이터 추출 (Scope 1+2+3)
+sk_df_s123 = df[df['Company'] == 'SK Innovation Co., Ltd.'].copy()
+# KB Financial Group 데이터 추출 (Scope 1+2+3)
+kb_df_s123 = df[df['Company'] == 'KB Financial Group Inc.'].copy()
+
+plt.figure(figsize=(12, 7))
+
+# SK Innovation 그래프 (Scope 1+2)
+plt.plot(sk_df_s123['Year'], sk_df_s123['GHG_Emissions'], marker='o', label='SK Innovation (Scope 1+2)', color=palette['SK Innovation Co., Ltd.'], linestyle='--', alpha=0.7, linewidth=2.5)
+# SK Innovation 그래프 (Scope 1+2+3)
+plt.plot(sk_df_s123['Year'], sk_df_s123['Total_Emissions'], marker='o', label='SK Innovation (Scope 1+2+3)', color=palette['SK Innovation Co., Ltd.'], linewidth=2.5)
+
+# KB Financial Group 그래프 (Scope 1+2)
+plt.plot(kb_df_s123['Year'], kb_df_s123['GHG_Emissions'], marker='s', label='KB Financial Group (Scope 1+2)', color=palette['KB Financial Group Inc.'], linestyle='--', alpha=0.7, linewidth=2.5)
+# KB Financial Group 그래프 (Scope 1+2+3)
+plt.plot(kb_df_s123['Year'], kb_df_s123['Total_Emissions'], marker='s', label='KB Financial Group (Scope 1+2+3)', color=palette['KB Financial Group Inc.'], linewidth=2.5)
+
+
+plt.title('Company-wise GHG Emissions Comparison (Scope 1+2 vs Scope 1+2+3)', fontsize=16, fontweight='bold', pad=20)
+plt.xlabel('Year', fontsize=12, labelpad=10)
+plt.ylabel('GHG Emissions (tCO2eq)', fontsize=12, labelpad=10)
+plt.grid(True, linestyle='--', alpha=0.6)
+plt.xticks(df['Year'].unique(), fontsize=10)
+plt.yticks(fontsize=10)
+plt.ticklabel_format(style='plain', axis='y')
+plt.legend(title='Company & Scope', title_fontsize='12', fontsize='10',
+           loc='upper left', frameon=True, shadow=True, borderpad=1)
+
+# Annotate points (refined for both companies and scopes)
+for _, row in sk_df_s123.iterrows():
+    plt.annotate(f'{row["GHG_Emissions"] / 1_000_000:,.1f}M', xy=(row['Year'], row['GHG_Emissions']),
+                 xytext=(row['Year'] - 0.2, row['GHG_Emissions'] + 3_000_000),
+                 fontsize=8, color=palette['SK Innovation Co., Ltd.'], ha='center')
+    plt.annotate(f'{row["Total_Emissions"] / 1_000_000:,.1f}M', xy=(row['Year'], row['Total_Emissions']),
+                 xytext=(row['Year'] + 0.2, row['Total_Emissions'] - 3_000_000),
+                 fontsize=8, color=palette['SK Innovation Co., Ltd.'], ha='center')
+
+for _, row in kb_df_s123.iterrows():
+    plt.annotate(f'{row["GHG_Emissions"]:,.0f}', xy=(row['Year'], row['GHG_Emissions']),
+                 xytext=(row['Year'] - 0.2, row['GHG_Emissions'] - 100_000),
+                 fontsize=8, color=palette['KB Financial Group Inc.'], ha='center')
+    plt.annotate(f'{row["Total_Emissions"]:,.0f}', xy=(row['Year'], row['Total_Emissions']),
+                 xytext=(row['Year'] + 0.2, row['Total_Emissions'] + 100_000),
+                 fontsize=8, color=palette['KB Financial Group Inc.'], ha='center')
+
+plt.tight_layout()
+plt.savefig(os.path.join(output_dir, 'ghg_emissions_comparison_scope3_impact.png'), dpi=300, bbox_inches='tight')
+plt.show()
+```
+
+[**SK 이노베이션의 GHG 비교 분석 그래프**]
+![](images/sk_innovation_ghg_comparison.png)
+
+
+[**KB 금융지주의 GHG 비교 분석 그래프**]
+![](images/sk_innovation_ghg_comparison.png)
+
+
+*설명: KB금융지주와 SK이노베이션의 온실가스(GHG) 배출량 비교 (Scope 1+2 vs Scope 1+2+3 포함).*
 
 **온실가스(GHG) 배출량 상세 현황 (단위: tCO2eq) - Scope 1, 2, 3 포함**
 
-| 기업명 | 구분 | 2022 | 2023 | 2024 |
-| :----------- | :----------- | -----------: | -----------: | -----------: |
-| **KB금융지주** | 직접 온실가스 (Scope 1) | 13,993 | 23,325 | 22,510 |
-| | 간접 온실가스 (Scope 2) | 114,994 | 132,121 | 132,814 |
-| | **기타 간접 온실가스 (Scope 3)** | **15,223** | **679,389** | **694,239** |
-| | **총 배출량 (합계)** | **144,210** | **834,835** | **849,563** |
-| **SK이노베이션** | 직접 온실가스 (Scope 1) | 9,116,619 | 9,379,375 | 9,434,690 |
-| | 간접 온실가스 (Scope 2) | 2,026,406 | 2,275,526 | 2,258,457 |
-| | **기타 간접 온실가스 (Scope 3)** | **138,749,300** | **142,958,200** | **146,490,800** |
-| | **총 배출량 (합계)** | **149,892,325** | **154,613,101** | **158,183,947** |
+| 기업명       | 구분                      | 2022           | 2023           | 2024           |
+| :----------- | :------------------------ | -------------: | -------------: | -------------: |
+| **KB금융지주** | 직접 온실가스 (Scope 1)       | 13,993         | 23,325         | 22,510         |
+|              | 간접 온실가스 (Scope 2)       | 114,994        | 132,121        | 132,814        |
+|              | **기타 간접 온실가스 (Scope 3)** | **15,223** | **679,389** | **694,239** |
+|              | **총 배출량 (합계)** | **144,210** | **834,835** | **849,563** |
+| **SK이노베이션** | 직접 온실가스 (Scope 1)       | 9,116,619      | 9,379,375      | 9,434,690      |
+|              | 간접 온실가스 (Scope 2)       | 2,026,406      | 2,275,526      | 2,258,457      |
+|              | **기타 간접 온실가스 (Scope 3)** | **138,749,300**| **142,958,200**| **146,490,800**|
+|              | **총 배출량 (합계)** | **149,892,325**| **154,613,101**| **158,183,947**|
 
   * **KB금융지주 (금융)**:
 
