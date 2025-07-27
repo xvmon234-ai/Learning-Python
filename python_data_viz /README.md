@@ -38,6 +38,20 @@
 
 * **분석 E-키워드**: 탄소, 온실가스, 넷제로, 배출량.
 
+```python
+# 환경 키워드 언급 빈도 트렌드 시각화 코드 (여기에 실제 코드를 붙여넣으세요)
+plt.figure(figsize=(10, 6))
+sns.lineplot(data=df, x='Year', y='E_Keyword_Freq', hue='Company', marker='o')
+plt.title('Company-wise E (Environmental) Keyword Mention Frequency Trend (2022-2024)', fontsize=16)
+plt.xlabel('Year', fontsize=12)
+plt.ylabel('Mention Frequency', fontsize=12)
+plt.grid(True, linestyle='--', alpha=0.7)
+plt.xticks(df['Year'].unique())
+plt.legend(title='Company')
+plt.tight_layout()
+# plt.savefig('images/e_keyword_freq_trend.png') # README에서는 주석 처리 권장
+# plt.show() # README에서는 주석 처리 권장
+
 * **SK이노베이션 (제조/에너지)**:
     * **트렌드**: E-키워드 빈도: 2022 (756) → 2023 (425) → 2024 (591).
     * **인사이트**: 2023년에 빈도가 크게 감소했지만, 2024년에 다시 회복했습니다. E-키워드 내에서 "탄소" 키워드가 일관되게 가장 큰 비중을 차지하는데, 이는 회사의 제조업 특성과 일치합니다. 2022년의 높은 빈도는 **탄소중립 전략 및 중장기 환경 목표**에 대한 광범위한 공시를 반영할 수 있습니다. 2023년의 감소는 `전략 수립 단계`에서 `실행/초기 성과 보고 단계`로 전환되면서 보고가 더 간결해졌음을 시사할 수 있습니다. 2024년의 회복은 **구체적인 감축 성과 또는 새로운 친환경 기술 도입**에 대한 보고에 집중했음을 의미할 수 있습니다.
@@ -54,6 +68,19 @@
 ### S (사회) 키워드 트렌드
 
 * **분석 S-키워드**: 인권, 다양성, 노동, 젠더, 차별.
+
+# 사회 키워드 언급 빈도 트렌드 시각화 코드 (여기에 실제 코드를 붙여넣으세요)
+plt.figure(figsize=(10, 6))
+sns.lineplot(data=df, x='Year', y='S_Keyword_Freq', hue='Company', marker='o')
+plt.title('Company-wise S (Social) Keyword Mention Frequency Trend (2022-2024)', fontsize=16)
+plt.xlabel('Year', fontsize=12)
+plt.ylabel('Mention Frequency', fontsize=12)
+plt.grid(True, linestyle='--', alpha=0.7)
+plt.xticks(df['Year'].unique())
+plt.legend(title='Company')
+plt.tight_layout()
+# plt.savefig('images/s_keyword_freq_trend.png')
+# plt.show()
 
 * **SK이노베이션 (제조/에너지)**:
     * **트렌드**: S-키워드 빈도: 2022 (516) → 2023 (357) → 2024 (350).
@@ -72,6 +99,19 @@
 
 * **분석 G-키워드**: 지배구조, 이사회, 감사, 윤리, 준법.
 
+# 지배구조 키워드 언급 빈도 트렌드 시각화 코드 (여기에 실제 코드를 붙여넣으세요)
+plt.figure(figsize=(10, 6))
+sns.lineplot(data=df, x='Year', y='G_Keyword_Freq', hue='Company', marker='o')
+plt.title('Company-wise G (Governance) Keyword Mention Frequency Trend (2022-2024)', fontsize=16)
+plt.xlabel('Year', fontsize=12)
+plt.ylabel('Mention Frequency', fontsize=12)
+plt.grid(True, linestyle='--', alpha=0.7)
+plt.xticks(df['Year'].unique())
+plt.legend(title='Company')
+plt.tight_layout()
+# plt.savefig('images/g_keyword_freq_trend.png')
+# plt.show()
+
 * **SK이노베이션 (제조/에너지)**:
     * **트렌드**: G-키워드 빈도: 2022 (651) → 2023 (529) → 2024 (609).
     * **인사이트**: 2023년에 빈도가 감소했다가 2024년에 회복했습니다. 2023년 감소는 2022년까지 지배구조 관련 특정 이슈(예: 지배구조 개편 완료, 내부 감사 시스템 정착 등)가 성공적으로 마무리되어 2023년에는 관련 언급 빈도가 줄었을 수 있습니다. 즉, `이미 시스템을 구축하고 안정화 단계에 진입하여` 과거처럼 많은 설명을 할 필요가 없어진 경우입니다. 2024년의 증가는 `강화된 기업 지배구조 보고 의무` 또는 글로벌 운영 및 공급망 관련 `리스크 관리`와 투명한 이사회 의사결정을 통한 `주주가치 제고`에 대한 강조가 반영되었을 수 있습니다.
@@ -86,6 +126,20 @@
     * KB금융지주의 2023년 극적인 증가는 금융 규제 환경 내에서 `외부 압력 또는 주요 내부 개혁에 대한 직접적인 대응`을 강력히 시사하며, 이후 보고는 정상화되었습니다.
 
 ### GHG (온실가스) 배출량 트렌드
+
+# 온실가스 배출량 트렌드 시각화 코드 (여기에 실제 코드를 붙여넣으세요)
+plt.figure(figsize=(10, 6))
+sns.lineplot(data=df, x='Year', y='GHG_Emissions', hue='Company', marker='o')
+plt.title('Company-wise GHG Emissions Trend (2022-2024)', fontsize=16)
+plt.xlabel('Year', fontsize=12)
+plt.ylabel('GHG Emissions (tCO2eq)', fontsize=12)
+plt.grid(True, linestyle='--', alpha=0.7)
+plt.xticks(df['Year'].unique())
+plt.ticklabel_format(style='plain', axis='y')
+plt.legend(title='Company')
+plt.tight_layout()
+# plt.savefig('images/ghg_emissions_trend.png')
+# plt.show()
 
 * **SK이노베이션 (제조/에너지)**:
     * **트렌드**: GHG 배출량: 2022 (128,987 tCO2eq) → 2023 (155,446 tCO2eq) → 2024 (155,324 tCO2eq).
