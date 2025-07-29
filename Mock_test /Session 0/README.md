@@ -61,6 +61,8 @@ INV012,Safety Equipment,2024-02-01,200,25000,0,0,Production,Warehouse 1,In Stock
           * 현재 시점까지의 누적 감가상각액은 취득일로부터 현재까지 경과된 개월 수를 기준으로 일할 계산하여 적용합니다.
       * 누적 감가상각액이 가장 높은 상위 5개 유형자산을 막대 그래프로 시각화하고, 자산 ID와 누적 감가상각액을 명확히 표시하세요.
 
+[**전체 코딩 보러가기**](https://github.com/xvmon234-ai/Learning-Python/blob/main/Mock_test%20/Session%200/solutions/coding.py)
+
 ## 질의 내용
 
 과제 제출 완료 후, 면접관이 아래 질문들을 기반으로 질의응답을 진행할 예정입니다.
@@ -75,6 +77,6 @@ INV012,Safety Equipment,2024-02-01,200,25000,0,0,Production,Warehouse 1,In Stock
 3.  감가상각 누계액 계산 시 `df_dep[["Accumulated_Depreciation", "Max_Depreciation"]].min(axis=1)`을 사용하여 최대 감가상각액을 초과하지 않도록 했습니다. 이 로직이 회계적으로 어떤 의미를 가지며, 왜 중요하다고 생각합니까?
 4.  만약 이 데이터에 새로운 자산 유형이 추가되거나, 기존 자산의 내용연수가 변경되는 등 데이터 구조나 회계 정책에 변동이 생긴다면, 작성하신 코드에서 어떤 부분을 가장 먼저 수정하거나 고려해야 합니까?
 
------
+[**전체 답변 보러가기**](https://github.com/xvmon234-ai/Learning-Python/blob/main/Mock_test%20/Session%200/solutions/qa.py)
 
-이제 다음 과제(자동화 스크립트 작성)를 시작할 준비가 되셨다면 말씀해주세요.
+
