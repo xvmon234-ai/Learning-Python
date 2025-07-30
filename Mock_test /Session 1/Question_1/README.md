@@ -56,6 +56,10 @@ Transaction_Date,Item_Description,Cost,Expense_Type
       * 필터링된 데이터를 `Category`별로 그룹화하여 총 금액을 집계하고, 결과를 내림차순으로 출력하세요.
 7.  **결과 CSV 파일로 저장:** 최종적으로 통합되고 처리된 데이터를 `monthly_expenses_report_202506.csv`라는 이름의 새 CSV 파일로 저장하세요. 이 파일에는 `Date`, `Description`, `Amount`, `Category` 컬럼만 포함되어야 합니다.
 
+
+[**전체 코딩 보러가기**](https://github.com/xvmon234-ai/Learning-Python/blob/main/Mock_test%20/Session%201/Question_1/solutions/coding.py)
+
+
 ## 질의 내용
 
 과제 제출 완료 후, 면접관이 아래 질문들을 기반으로 질의응답을 진행할 예정입니다.
@@ -69,5 +73,8 @@ Transaction_Date,Item_Description,Cost,Expense_Type
 
 3.  다른 부서에서 제출된 비용 보고서의 컬럼명이 다른 경우를 처리했습니다. 실제 업무 환경에서 이처럼 데이터 형식이 통일되지 않을 때 발생할 수 있는 회계 실무적 문제점은 무엇이며, 이를 방지하기 위한 통제 방안은 무엇이 있을까요?
 4.  'IT' 및 'Travel' 카테고리의 비용을 필터링하고 집계했습니다. 만약 여러 부서의 비용 데이터가 통합된 상황에서, 특정 부서의 'IT' 비용만 추가적으로 분석해야 한다면 어떤 방식으로 데이터를 필터링하고 집계할 수 있을까요?
+
+
+[**전체 질의응답 보러가기**](https://github.com/xvmon234-ai/Learning-Python/blob/main/Mock_test%20/Session%201/Question_1/solutions/qa.py)
 
 -----
