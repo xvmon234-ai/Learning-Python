@@ -108,6 +108,10 @@ Sale_Date,Product_Category,Product_Name,Quantity_Sold,Unit_Price,Region
 4.  **지역별 상위 3개 제품 카테고리 분석:**
       * 각 `Region` (지역)별로 `Product_Category`의 'Total\_Revenue' 합계를 계산하고, 각 지역 내에서 \*\*매출이 가장 높은 상위 3개 `Product_Category`\*\*를 출력하세요. (예: North 지역의 상위 3개 카테고리, South 지역의 상위 3개 카테고리 등)
 
+
+[**정답 코드 보러가기**](https://github.com/xvmon234-ai/Learning-Python/blob/main/Mock_test%20/Session%201/Question_2/solutions/coding.py)
+
+
 ## 질의 내용
 
 과제 제출 완료 후, 면접관이 아래 질문들을 기반으로 질의응답을 진행할 예정입니다.
@@ -121,5 +125,9 @@ Sale_Date,Product_Category,Product_Name,Quantity_Sold,Unit_Price,Region
 
 3.  월별 매출 추이와 제품 카테고리별 매출 기여도를 시각화했습니다. 만약 경영진이 특정 월의 매출이 급격히 감소했거나, 특정 카테고리의 매출 기여도가 예상보다 낮을 때, 추가적으로 어떤 재무적 분석 지표나 시각화 방법을 활용하여 원인을 파악하고 설명할 수 있을까요?
 4.  지역별 상위 3개 제품 카테고리를 분석했습니다. 이 결과를 기반으로 회계 및 재무적 관점에서 기업의 전략 수립(예: 투자, 생산 계획, 마케팅 예산 배분 등)에 어떤 도움을 줄 수 있을까요? 구체적인 예를 들어 설명해 주세요.
+
+
+[**질의 응답 보러가기**](https://github.com/xvmon234-ai/Learning-Python/blob/main/Mock_test%20/Session%201/Question_2/solutions/qa.py)
+
 
 -----
