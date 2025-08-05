@@ -1,4 +1,4 @@
-## **Day 8 (7/29 화) - 실전 모의고사 1회: 데이터 처리 및 정제**
+# **Day 8 : 실전 모의고사 1회: 데이터 처리 및 정제**
 
 #### **1. 학습 목표**
 
@@ -30,3 +30,7 @@
     * 위의 필터링 조건을 통과한 자산들을 대상으로, **`Department`별로 `Book_Value`의 총합을 계산**합니다.
 5.  **최종 결과 저장:**
     * 집계된 결과를 `department_book_value_summary.csv` 파일로 저장합니다.
+  
+[**전체 코딩 보러가기**](https://github.com/xvmon234-ai/Learning-Python/blob/main/CPA%20/my_learing_python%20/Day%208/solutions/coding.py)
+
+[**추가 학습 보러가기**](https://github.com/xvmon234-ai/Learning-Python/blob/main/CPA%20/my_learing_python%20/Day%208/further_study/study.py)
