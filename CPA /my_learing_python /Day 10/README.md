@@ -43,15 +43,21 @@ df = pd.DataFrame(data)
   - `price_per_item`과 `quantity`를 사용하여 'total\_price'라는 새로운 열을 만드세요.
   - `total_price`가 10000 이상이면 'High', 5000 이상 10000 미만이면 'Medium', 그 외는 'Low'로 분류하는 'price\_level' 열을 `apply`와 `lambda`를 사용해 추가하세요.
 
+[**정답 코드 보러가기**](https://github.com/xvmon234-ai/Learning-Python/blob/main/CPA%20/my_learing_python%20/Day%2010/solutions/coding_1.py)
+
 #### 문제 2: `map()`과 `replace()` 활용
 
   - `customer_id`를 사용하여 각 고객별로 고유한 숫자 ID(1, 2, 3...)를 부여하는 'customer\_num\_id' 열을 `map()`을 사용해 추가하세요.
   - `status` 열의 'Pending'을 '처리 중', 'Completed'를 '완료', 'Cancelled'를 '취소'로 바꾸는 변환을 `replace()`를 사용해 수행하세요.
 
+[**정답 코드 보러가기**](https://github.com/xvmon234-ai/Learning-Python/blob/main/CPA%20/my_learing_python%20/Day%2010/solutions/coding_2.py)
+
 #### 문제 3: 범주형 데이터 처리
 
   - `product_id`, `customer_id`, `status` 열의 데이터 타입을 `category`로 변환하세요.
   - 변환 전후의 DataFrame 메모리 사용량을 `df.info(memory_usage='deep')`를 사용해 비교하고, 그 결과를 분석하세요.
+
+[**정답 코드 보러가기**](https://github.com/xvmon234-ai/Learning-Python/blob/main/CPA%20/my_learing_python%20/Day%2010/solutions/coding_3.py)
 
 #### 문제 4: 날짜/시간 데이터 처리
 
@@ -62,3 +68,5 @@ df = pd.DataFrame(data)
 
   - **요일별 평균 주문 수량:**
     (여기에 계산된 결과를 작성하세요)
+
+[**정답 코드 보러가기**](https://github.com/xvmon234-ai/Learning-Python/blob/main/CPA%20/my_learing_python%20/Day%2010/solutions/coding_4.py)
