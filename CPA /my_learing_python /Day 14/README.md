@@ -12,9 +12,8 @@
 
 ### **Part 1: Pandas 기초 및 데이터 정제 (Day 1 - Day 5)**
 
-* **Day 1: Pandas 기본기 - 데이터 생성 및 선택**[](https://github.com/xvmon234-ai/Learning-Python/tree/main/CPA%20/my_learing_python%20/Day%201%20)
+* **Day 1: Pandas 기본기 - 데이터 생성 및 선택**
     `Series`, `DataFrame`의 개념을 이해하고, 데이터를 생성하는 다양한 방법을 학습했습니다. 특히 `.head()`, `.tail()`, `.info()`를 활용하여 데이터의 초기 구조와 속성을 빠르게 파악하는 연습을 통해 데이터 분석의 첫 단추를 제대로 끼웠습니다.
-
 
 * **Day 2: Pandas 기본기 - 인덱싱 및 필터링**
     데이터프레임의 특정 데이터를 선택하는 핵심 기술인 인덱싱(`loc`, `iloc`)을 숙달하고, 조건식을 활용한 불리언 필터링 방법을 배웠습니다. 대규모 데이터셋에서 원하는 정보를 정확하게 추출하는 능력을 길렀습니다.
