@@ -76,6 +76,8 @@ html_doc_static = """
   - `BeautifulSoup`을 사용해 `html_doc_static`에서 모든 상품의 **이름**과 **가격**을 추출하세요.
   - 추출한 데이터를 리스트 안에 딕셔너리 형태로 저장하고 출력하세요.
 
+[**정답 코드 보러가기**](https://github.com/xvmon234-ai/Learning-Python/blob/main/CPA%20/my_learing_python%20/Day%2012/solutions/coding_1.py)
+
 #### **문제 2: 네이버 블로그 스크래핑 (심화)**
 
 운영 중인 블로그 `https://blog.naver.com/xvmon2`의 첫 페이지에서 모든 글의 **제목**과 **URL**을 스크래핑하세요.
@@ -87,3 +89,4 @@ html_doc_static = """
   - `BeautifulSoup`으로 글 목록 HTML을 파싱하고, 모든 글의 **제목**과 **URL**을 추출하세요.
   - 결과를 리스트 안에 딕셔너리 형태로 저장하고 출력하세요.
 
+[**정답 코드 보러가기**](https://github.com/xvmon234-ai/Learning-Python/blob/main/CPA%20/my_learing_python%20/Day%2012/solutions/coding_2.py)
