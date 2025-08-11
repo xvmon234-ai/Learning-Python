@@ -46,8 +46,7 @@ df.set_index('date', inplace=True)
 
 [**정답 코드 보러가기**](https://github.com/xvmon234-ai/Learning-Python/blob/main/CPA%20/my_learing_python%20/Day%209/solutions/coding_1.py)
 
-[**해당 이미지**]
-(https://github.com/xvmon234-ai/Learning-Python/blob/main/CPA%20/my_learing_python%20/Day%209/images/1.png)
+[**시각화 이미지**](https://github.com/xvmon234-ai/Learning-Python/blob/main/CPA%20/my_learing_python%20/Day%209/images/1.png)
 
 #### 문제 2: Matplotlib 차트 꾸미기 및 여러 차트 배치하기
 
@@ -56,8 +55,7 @@ df.set_index('date', inplace=True)
 
 [**정답 코드 보러가기**](https://github.com/xvmon234-ai/Learning-Python/blob/main/CPA%20/my_learing_python%20/Day%209/solutions/coding_2.py)
 
-[**해당 이미지**]
-(https://github.com/xvmon234-ai/Learning-Python/blob/main/CPA%20/my_learing_python%20/Day%209/images/2.png)
+[**시각화 이미지**](https://github.com/xvmon234-ai/Learning-Python/blob/main/CPA%20/my_learing_python%20/Day%209/images/2.png)
 
 #### 문제 3: Seaborn 고급 시각화 활용
 
@@ -67,5 +65,4 @@ df.set_index('date', inplace=True)
 
 [**정답 코드 보러가기**](https://github.com/xvmon234-ai/Learning-Python/blob/main/CPA%20/my_learing_python%20/Day%209/solutions/coding_3.py)
 
-[**해당 이미지**]
-(https://github.com/xvmon234-ai/Learning-Python/blob/main/CPA%20/my_learing_python%20/Day%209/images/3.png)
+[**시각화 이미지**](https://github.com/xvmon234-ai/Learning-Python/blob/main/CPA%20/my_learing_python%20/Day%209/images/3.png)
