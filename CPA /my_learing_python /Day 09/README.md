@@ -44,7 +44,7 @@ df.set_index('date', inplace=True)
   - `sales`와 `temperature`의 관계 산점도
   - `sales` 데이터의 분포 히스토그램
 
-[**정답 코드 보러가기**](https://github.com/xvmon234-ai/Learning-Python/blob/main/CPA%20/my_learing_python%20/Day%209/solutions/coding_1.py)
+[**정답 코드 보러가기**](./solutions/coding_1.py)
 
 [**시각화 이미지**]
 ![](images/1.png)
@@ -54,7 +54,7 @@ df.set_index('date', inplace=True)
   - 1행 2열 서브플롯에 꺾은선 그래프와 산점도 배치
   - 각 차트에 제목, 레이블, 스타일 적용
 
-[**정답 코드 보러가기**](https://github.com/xvmon234-ai/Learning-Python/blob/main/CPA%20/my_learing_python%20/Day%209/solutions/coding_2.py)
+[**정답 코드 보러가기**](./solutions/coding_2.py)
 
 [**시각화 이미지**]
 ![](images/2.png)
@@ -65,7 +65,7 @@ df.set_index('date', inplace=True)
   - 도시별 평균 `sales` 막대 그래프
   - 숫자형 변수들의 상관관계 히트맵
 
-[**정답 코드 보러가기**](https://github.com/xvmon234-ai/Learning-Python/blob/main/CPA%20/my_learing_python%20/Day%209/solutions/coding_3.py)
+[**정답 코드 보러가기**](./solutions/coding_3.py)
 
 [**시각화 이미지**]
 ![](images/3.png)
