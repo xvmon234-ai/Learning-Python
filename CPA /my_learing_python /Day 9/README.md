@@ -1,9 +1,3 @@
-네, 이전에 학습한 내용을 기록한 GitHub `README.md` 스타일을 참고하여 Day 9의 학습 내용을 정리해 드릴게요.
-
-제공해주신 `Day 1`의 형식을 기반으로, 헤딩과 이모지를 활용하여 가독성이 높고 깔끔한 `README.md`를 구성했습니다. 아래 내용을 복사하여 사용하시면 됩니다.
-
------
-
 # Day 09: 데이터 시각화 기초 (Matplotlib & Seaborn)
 
 ## 🎯 학습 목표
@@ -50,14 +44,20 @@ df.set_index('date', inplace=True)
   - `sales`와 `temperature`의 관계 산점도
   - `sales` 데이터의 분포 히스토그램
 
-[**정답 코드 보러가기**]
+[**정답 코드 보러가기**](https://github.com/xvmon234-ai/Learning-Python/blob/main/CPA%20/my_learing_python%20/Day%209/solutions/coding_1.py)
 
-
+[**해당 이미지**]
+(https://github.com/xvmon234-ai/Learning-Python/blob/main/CPA%20/my_learing_python%20/Day%209/images/1.png)
 
 #### 문제 2: Matplotlib 차트 꾸미기 및 여러 차트 배치하기
 
   - 1행 2열 서브플롯에 꺾은선 그래프와 산점도 배치
   - 각 차트에 제목, 레이블, 스타일 적용
+
+[**정답 코드 보러가기**](https://github.com/xvmon234-ai/Learning-Python/blob/main/CPA%20/my_learing_python%20/Day%209/solutions/coding_2.py)
+
+[**해당 이미지**]
+(https://github.com/xvmon234-ai/Learning-Python/blob/main/CPA%20/my_learing_python%20/Day%209/images/2.png)
 
 #### 문제 3: Seaborn 고급 시각화 활용
 
@@ -65,8 +65,7 @@ df.set_index('date', inplace=True)
   - 도시별 평균 `sales` 막대 그래프
   - 숫자형 변수들의 상관관계 히트맵
 
+[**정답 코드 보러가기**](https://github.com/xvmon234-ai/Learning-Python/blob/main/CPA%20/my_learing_python%20/Day%209/solutions/coding_3.py)
 
-
-  - **시각화 결과:**
-
------
+[**해당 이미지**]
+(https://github.com/xvmon234-ai/Learning-Python/blob/main/CPA%20/my_learing_python%20/Day%209/images/3.png)
