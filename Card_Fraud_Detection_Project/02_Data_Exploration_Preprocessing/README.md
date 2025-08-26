@@ -1,4 +1,4 @@
-# 02. Data Exploration Preprocessing: Card Fraud Detection
+# 02. Data Exploration Preprocessing: Credit Card Fraud Detection
 
 ## 1. 프로젝트 개요
 이 프로젝트는 **신용카드 거래 데이터**를 활용하여 이상 거래를 탐지하는 머신러닝 모델을 개발하는 것을 목표로 합니다. 특히, 데이터 분석 및 모델링 과정에서 마주하게 되는 **클래스 불균형**과 같은 현실적인 문제들을 체계적으로 해결하고, 이를 통해 문제 해결 역량을 강화하는 데 중점을 두었습니다. 프로젝트의 모든 과정은 GitHub에 기록하여 포트폴리오로 활용할 계획입니다.
