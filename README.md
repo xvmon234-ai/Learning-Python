@@ -12,7 +12,9 @@
 |:---|:---|:---|
 | **ESG 트렌드 분석 및 시각화** | ESG 키워드 언급 빈도와 온실가스 배출량 트렌드 분석을 통해, 데이터 기반의 비즈니스 인사이트 도출 역량을 선보입니다. | [프로젝트 링크](https://www.google.com/search?q=https://github.com/xvmon234-ai/Learning-Python/tree/main/esg_analysis) |
 | **신용카드 이상 거래 탐지 모델** | 심각한 클래스 불균형 문제를 해결하며, 재현율을 극대화한 머신러닝 모델을 개발합니다. 모델의 평가 지표 선택 및 비즈니스 목표와의 연관성을 심층적으로 분석합니다. | [프로젝트 링크](https://www.google.com/search?q=https://github.com/xvmon234-ai/Learning-Python/tree/main/Card_Fraud_Detection_Project) |
+| **AI 기반 재무 위험 예측** | 재무 데이터 분석을 통해 기업의 감사 리스크를 예측하는 머신러닝 모델을 구축하고, 모델 해석 결과를 기반으로 감사 실무 적용 방안을 제시합니다. | [프로젝트 링크](https://github.com/xvmon234-ai/Learning-Python/tree/main/Financial_Risk_Prediction) |
 
+: 
 #### **3. Python 학습 동기 및 AI 활용 전략**
 
 본 학습은 단순히 기술 역량을 보여주는 것을 넘어, Python 학습을 시작한 배경과 AI(Gemini)를 활용한 학습 및 업무 효율화 전략을 담고 있습니다.
